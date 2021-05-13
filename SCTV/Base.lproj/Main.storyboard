@@ -41,16 +41,12 @@
                         <viewLayoutGuide key="safeArea" id="wW8-Uz-Ewj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="dZg-ww-S3b" appends="YES" id="ttQ-bM-3VF"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="tfIpAddress" destination="Q7O-CG-muM" id="RgC-PR-Lm6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUY-BY-Jc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dZg-ww-S3b"/>
             </objects>
             <point key="canvasLocation" x="-997.10144927536237" y="125.89285714285714"/>
         </scene>

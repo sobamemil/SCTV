@@ -27,11 +27,11 @@ class VideoStreamingViewController: UIViewController {
     // cctv 영상 재생 버튼 클릭 시 호출
     @IBAction func btnStartStreaming(_ sender: UIButton) {
         if let address = tfIpAddress.text { // textField로부터 ip주소를 가져옴
-            print(address)
             let url = NSURL(string: address)! // NSURL 생성
             startStreaming(url: url) // 스트리밍 시작 메소드 호출
         }
         else { // textField에 값이 없으면 예외처리
+            
         }
     }
     
@@ -50,8 +50,13 @@ class VideoStreamingViewController: UIViewController {
         
         // 비디오를 재생한다.
         self.present(playerController, animated:true){
-            
             player.play()
         }
     }
+    
+    // 화면 터치 시 키보드 자판이 내려가도록 하는 부분
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 }
