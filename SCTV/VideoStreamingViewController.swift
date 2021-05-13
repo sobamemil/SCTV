@@ -9,7 +9,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class VideoStreamingViewController: UIViewController {
+class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class VideoStreamingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
+    // 테스트 ip 주소 : http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
     
     // cctv 영상 재생 버튼 클릭 시 호출
     @IBAction func btnStartStreaming(_ sender: UIButton) {
@@ -35,7 +35,12 @@ class VideoStreamingViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var tfIpAddress: UITextField!
+    @IBOutlet weak var tfIpAddress: UITextField! {
+        didSet {
+            tfIpAddress.delegate = self
+            tfIpAddress.returnKeyType = .done
+        }
+    }
     
     private func startStreaming(url: NSURL){
         
@@ -57,6 +62,12 @@ class VideoStreamingViewController: UIViewController {
     // 화면 터치 시 키보드 자판이 내려가도록 하는 부분
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    // 키보드의 Done, 완료 버튼 클릭 시 키보드가 내려가도록 구현
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        tfIpAddress.resignFirstResponder()
+        return true
     }
 
 }
