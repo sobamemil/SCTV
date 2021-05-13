@@ -14,6 +14,8 @@
 		572274482647CF0400D2E4A1 /* SCTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 572274462647CF0400D2E4A1 /* SCTV.xcdatamodeld */; };
 		5722744A2647CF0500D2E4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572274492647CF0500D2E4A1 /* Assets.xcassets */; };
 		5722744D2647CF0500D2E4A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5722744B2647CF0500D2E4A1 /* LaunchScreen.storyboard */; };
+		57321DC4264D59F300707C60 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57321DC3264D59F300707C60 /* WebKit.framework */; };
+		57321DC6264D5B4B00707C60 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57321DC5264D5B4B00707C60 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		572274492647CF0500D2E4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5722744C2647CF0500D2E4A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5722744E2647CF0500D2E4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57321DC3264D59F300707C60 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		57321DC5264D5B4B00707C60 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57321DC4264D59F300707C60 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,7 @@
 			children = (
 				5722743C2647CF0400D2E4A1 /* SCTV */,
 				5722743B2647CF0400D2E4A1 /* Products */,
+				57321DC2264D59F300707C60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,12 +68,21 @@
 				5722743F2647CF0400D2E4A1 /* SceneDelegate.swift */,
 				572274432647CF0400D2E4A1 /* Main.storyboard */,
 				5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */,
+				57321DC5264D5B4B00707C60 /* WebViewController.swift */,
 				572274492647CF0500D2E4A1 /* Assets.xcassets */,
 				5722744B2647CF0500D2E4A1 /* LaunchScreen.storyboard */,
 				5722744E2647CF0500D2E4A1 /* Info.plist */,
 				572274462647CF0400D2E4A1 /* SCTV.xcdatamodeld */,
 			);
 			path = SCTV;
+			sourceTree = "<group>";
+		};
+		57321DC2264D59F300707C60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57321DC3264D59F300707C60 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +158,7 @@
 				572274482647CF0400D2E4A1 /* SCTV.xcdatamodeld in Sources */,
 				5719A2ED264CE8C000E0E0C3 /* VideoStreamingViewController.swift in Sources */,
 				5722743E2647CF0400D2E4A1 /* AppDelegate.swift in Sources */,
+				57321DC6264D5B4B00707C60 /* WebViewController.swift in Sources */,
 				572274402647CF0400D2E4A1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
