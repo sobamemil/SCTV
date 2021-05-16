@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import WebKit //WebView 사용을 위한 패키지 임포트
+import WebKit // WebView 사용을 위한 패키지 임포트
 
 class WebViewController: UIViewController {
 
@@ -15,7 +15,8 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // viewDidLoad() 바로 다음에 함수를 호출하여 웹뷰가 즉시 출력될 수 있도록 작성
-        loadWebPage("http://115.86.241.6:81/stream")
+        // loadWebPage("http://115.86.241.6:81/stream")
+        loadWebPage("https://naver.com")
         
     }
     //웹뷰 로드 기능을 하는 함수 생성

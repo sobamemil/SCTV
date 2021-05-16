@@ -9,12 +9,12 @@ import UIKit
 import AVKit
 import AVFoundation
 
+
 class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +41,15 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
             tfIpAddress.returnKeyType = .done
         }
     }
+    
+    @IBAction func btnShowWeb(_ sender: Any) {
+        let wvc = WebViewController()
+
+        if let address = tfIpAddress.text { // textField로부터 ip주소를 가져옴
+            wvc.loadWebPage(address) // WebViewController의 메소드 호출
+        }
+    }
+    
     
     private func startStreaming(url: NSURL){
         
