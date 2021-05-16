@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwh-Ab-P4k">
-                                <rect key="frame" x="164" y="391" width="86" height="30"/>
+                                <rect key="frame" x="145" y="391" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="cctv 재생하기"/>
+                                <state key="normal" title="외부 동영상 재생하기"/>
                                 <connections>
                                     <action selector="btnStartStreaming:" destination="qRd-dx-XtO" eventType="touchUpInside" id="89R-f0-Tfo"/>
                                 </connections>
@@ -38,9 +38,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-AO-HMY">
-                                <rect key="frame" x="162" y="459" width="90" height="30"/>
+                                <rect key="frame" x="156" y="459" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="cctv 웹 띄우기"/>
+                                <state key="normal" title="cctv 웹 재생하기"/>
                                 <connections>
                                     <action selector="btnShowWeb:" destination="qRd-dx-XtO" eventType="touchUpInside" id="q5z-y9-bym"/>
                                 </connections>
@@ -61,7 +61,7 @@
         <!--Web View Controller-->
         <scene sceneID="iXY-Th-2p4">
             <objects>
-                <viewController id="BNs-YI-dee" customClass="WebViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wvc" id="BNs-YI-dee" customClass="WebViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6dw-yK-GRU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

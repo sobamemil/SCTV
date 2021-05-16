@@ -10,14 +10,15 @@ import WebKit // WebView 사용을 위한 패키지 임포트
 
 class WebViewController: UIViewController {
 
+    var url: String?
+    
     @IBOutlet weak var myWebView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // viewDidLoad() 바로 다음에 함수를 호출하여 웹뷰가 즉시 출력될 수 있도록 작성
         // loadWebPage("http://115.86.241.6:81/stream")
-        loadWebPage("https://naver.com")
-        
+        //loadWebPage(url!)
     }
     //웹뷰 로드 기능을 하는 함수 생성
     func loadWebPage(_ url:String) {
@@ -25,6 +26,10 @@ class WebViewController: UIViewController {
         let myRequest = URLRequest(url: myUrl!)
         myWebView.load(myRequest)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadWebPage(url!)
     }
     
     // 이전 버튼 작동을 위한 구문

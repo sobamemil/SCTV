@@ -43,10 +43,13 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnShowWeb(_ sender: Any) {
-        let wvc = WebViewController()
-
-        if let address = tfIpAddress.text { // textField로부터 ip주소를 가져옴
-            wvc.loadWebPage(address) // WebViewController의 메소드 호출
+        guard let wvc = self.storyboard?.instantiateViewController(identifier: "wvc") as? WebViewController else {
+            return
+        }
+        
+        if let address = tfIpAddress.text {
+            wvc.url = address
+            self.present(wvc, animated: true, completion: nil)
         }
     }
     
