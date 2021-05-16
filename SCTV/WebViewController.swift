@@ -18,7 +18,6 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
        // viewDidLoad() 바로 다음에 함수를 호출하여 웹뷰가 즉시 출력될 수 있도록 작성
         // loadWebPage("http://115.86.241.6:81/stream")
-        //loadWebPage(url!)
     }
     //웹뷰 로드 기능을 하는 함수 생성
     func loadWebPage(_ url:String) {

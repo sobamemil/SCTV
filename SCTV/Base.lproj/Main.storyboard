@@ -24,7 +24,7 @@
                                     <action selector="btnStartStreaming:" destination="qRd-dx-XtO" eventType="touchUpInside" id="89R-f0-Tfo"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" borderStyle="roundedRect" placeholder="cctv가 연결된 ip주소를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7O-CG-muM">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://115.86.241.6:81/stream" borderStyle="roundedRect" placeholder="cctv가 연결된 ip주소를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7O-CG-muM">
                                 <rect key="frame" x="79" y="310" width="315" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
