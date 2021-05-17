@@ -92,7 +92,7 @@
         <!--Item-->
         <scene sceneID="JkZ-3A-MSt">
             <objects>
-                <viewController id="ym0-9D-gy6" sceneMemberID="viewController">
+                <viewController id="ym0-9D-gy6" customClass="ApiSendViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fQX-te-cya">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,6 +101,9 @@
                                 <rect key="frame" x="159" y="433" width="96" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="API 테스트 버튼"/>
+                                <connections>
+                                    <action selector="btnApiSend:" destination="ym0-9D-gy6" eventType="touchUpInside" id="qzv-Vt-1e3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wni-tw-mic"/>
@@ -118,6 +121,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eS2-jc-2t7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="isf-Zs-I77">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
