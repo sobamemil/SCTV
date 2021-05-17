@@ -47,6 +47,7 @@ class ApiSendViewController: UIViewController {
     private func ResponseMessageAlert(message m: String) {
         let alert = UIAlertController(title: "요청 전송 완료", message: m, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 }
