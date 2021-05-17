@@ -13,30 +13,36 @@ class ApiSendViewController: UIViewController {
     
     private func send() {
         //접근하고자 하는 URL 정보
-        let URL = "https://jsonplaceholder.typicode.com/todos/1"
+        let URL = "https://jsonplaceholder.typicode.com/todos/3"
+
+        // 1. 전송할 값 준비
+//        let param: Parameters = [
+//            "userId": userId,
+//            "userPassword": userPassword]
         
-//        //전송할 파라미터 정보
-//        let PARAM:Parameters = [
-//            "NAME":"손흥민",
-//            "BORN": 1992,
-//            "JOB": "축구선수"
-//        ]
-        
-        //위의 URL와 파라미터를 담아서 GET 방식으로 통신하며, statusCode가 200번대(정상적인 통신) 인지 유효성 검사 진행
-        let alamo = AF.request(URL, method: .get, parameters: nil).validate(statusCode: 200..<300)
-        
-        //결과값으로 문자열을 받을 때 사용
-        alamo.responseString() { response in
-            switch response.result
-            {
-            //통신성공
-            case .success(let value):
-                print(value)
-                
-            //통신실패
+        // 전송
+        AF.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON() { response in
+            switch response.result {
+            case .success:
+                if let jsonObject = try! response.result.get() as? [String: Any] {
+                    let userId = jsonObject["userId"] as? Int
+                    let id = jsonObject["id"] as? Int
+                    let title = jsonObject["title"] as? String
+                    let completed = jsonObject["completed"] as? Bool
+                    
+                    let parsedResponse = "userId: \(userId!)" + "\n"
+                        + "id: \(id!)" + "\n"
+                        + "title: \(title!)" + "\n"
+                        + "completed: \(completed!)" + "\n"
+                    
+                    //showAlert(parsedResponse)
+                }
             case .failure(let error):
-                print("error: \(String(describing: error.errorDescription))")
+                print(error)
+                return
             }
         }
     }
+    
+    
 }
