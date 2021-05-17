@@ -35,7 +35,7 @@ class ApiSendViewController: UIViewController {
                         + "title: \(title!)" + "\n"
                         + "completed: \(completed!)" + "\n"
                     
-                    //showAlert(parsedResponse)
+                    self.ResponseMessageAlert(message: parsedResponse)
                 }
             case .failure(let error):
                 print(error)
@@ -44,5 +44,9 @@ class ApiSendViewController: UIViewController {
         }
     }
     
+    private func ResponseMessageAlert(message m: String) {
+        let alert = UIAlertController(title: "요청 전송 완료", message: m, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+    }
     
 }
