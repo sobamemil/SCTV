@@ -1,0 +1,6 @@
+framework module Pods_SCTV {
+  umbrella header "Pods-SCTV-umbrella.h"
+
+  export *
+  module * { export * }
+}
