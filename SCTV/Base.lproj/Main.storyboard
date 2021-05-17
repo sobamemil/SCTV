@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qRd-dx-XtO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eS2-jc-2t7">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Video Streaming View Controller-->
+        <!--Item-->
         <scene sceneID="jRg-dB-wmf">
             <objects>
                 <viewController id="qRd-dx-XtO" customClass="VideoStreamingViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,13 +50,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="SKS-fS-byZ"/>
                     <connections>
                         <outlet property="tfIpAddress" destination="Q7O-CG-muM" id="RgC-PR-Lm6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUY-BY-Jc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-997.10144927536237" y="125.89285714285714"/>
+            <point key="canvasLocation" x="-86.956521739130437" y="125.89285714285714"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="iXY-Th-2p4">
@@ -86,7 +87,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0f-W5-aTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123.18840579710145" y="117.85714285714285"/>
+            <point key="canvasLocation" x="786.95652173913049" y="117.85714285714285"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="JkZ-3A-MSt">
+            <objects>
+                <viewController id="ym0-9D-gy6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fQX-te-cya">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mor-gS-RoY">
+                                <rect key="frame" x="159" y="433" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="API 테스트 버튼"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wni-tw-mic"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="8S1-8x-pwL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l96-AT-9AL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123.18840579710145" y="828.34821428571422"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="0Zr-j4-SBt">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eS2-jc-2t7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="isf-Zs-I77">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qRd-dx-XtO" kind="relationship" relationship="viewControllers" id="XtN-Ng-9Xu"/>
+                        <segue destination="ym0-9D-gy6" kind="relationship" relationship="viewControllers" id="05e-ay-9My"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oZv-sN-ZaO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-997.10144927536237" y="125.89285714285714"/>
         </scene>
     </scenes>
     <resources>
