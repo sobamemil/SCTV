@@ -67,7 +67,8 @@ class ApiSendViewController: UIViewController {
         
         // URL에 있는 이미지 파일을 가져와서 UIImage 형식으로 저장
         var image: UIImage?
-        let url = URL(string: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE") //"https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681")
+        let url = URL(string: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE")
+        
         do {
             let data = try Data(contentsOf: url!)
             image = UIImage(data: data)

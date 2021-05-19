@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5706EEC92655210B00351C97 /* ImageInAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5706EEC82655210B00351C97 /* ImageInAlertViewController.swift */; };
 		5719A2ED264CE8C000E0E0C3 /* VideoStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */; };
 		5722743E2647CF0400D2E4A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5722743D2647CF0400D2E4A1 /* AppDelegate.swift */; };
 		572274402647CF0400D2E4A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5722743F2647CF0400D2E4A1 /* SceneDelegate.swift */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5706EEC82655210B00351C97 /* ImageInAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInAlertViewController.swift; sourceTree = "<group>"; };
 		5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStreamingViewController.swift; sourceTree = "<group>"; };
 		5722743A2647CF0400D2E4A1 /* SCTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5722743D2647CF0400D2E4A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 				572274432647CF0400D2E4A1 /* Main.storyboard */,
 				5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */,
 				57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */,
-				5706EEC82655210B00351C97 /* ImageInAlertViewController.swift */,
 				57321DC5264D5B4B00707C60 /* WebViewController.swift */,
 				572274492647CF0500D2E4A1 /* Assets.xcassets */,
 				5722744B2647CF0500D2E4A1 /* LaunchScreen.storyboard */,
@@ -221,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5706EEC92655210B00351C97 /* ImageInAlertViewController.swift in Sources */,
 				572274482647CF0400D2E4A1 /* SCTV.xcdatamodeld in Sources */,
 				57B5D0F22652B3BD00AB7CD0 /* ApiSendViewController.swift in Sources */,
 				5719A2ED264CE8C000E0E0C3 /* VideoStreamingViewController.swift in Sources */,
