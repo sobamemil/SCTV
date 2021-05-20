@@ -93,13 +93,21 @@ class ApiSendViewController: UIViewController {
         let param: [String: String] = [
             "name": tfName.text! ,
             "birth": tfBirth.text!,
-            "gender": "수컷",
+            "gender": "남자(수컷)",
             "image_field": "",
             "created": date.string(from: Date())
         ]
 
         AF.request(URL, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
-            // response.data
+            switch response.result {
+            case .success:
+                // 등록 성공 시 로직 구현
+                self.messageAlert(message: "정상적으로 등록되었습니다.")
+            case .failure:
+                // 등록 실패 시 로직 구현
+                self.messageAlert(message: "등록에 실패하였습니다.")
+                NSLog("regist error (POST)")
+            }
          }
     }
     
