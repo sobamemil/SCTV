@@ -7,14 +7,26 @@ class ApiSendViewController: UIViewController {
     }
     
     @IBAction func btnApiSend(_ sender: Any) {
-        send()
+        apiSerch()
     }
-        
     
-    private func send() {
+    @IBAction func btnRegist(_ sender: Any) {
+        apiRegist()
+    }
+    
+    @IBOutlet weak var tfName: UITextField!
+    @IBOutlet weak var tfBirth: UITextField!
+    
+    func showCCTV() {
+        // 추후 cctv 스트리밍 화면으로 연결되도록 구현할 예정
+    }
+    
+    // MARK:- API GET/POST
+    private func apiSerch() {
         //접근하고자 하는 URL 정보
-        let URL = "https://jsonplaceholder.typicode.com/todos/3"
-
+        // let URL = "https://jsonplaceholder.typicode.com/todos/3"
+        let URL = "http://1.244.160.11:8000/addresses/"
+        
         // 1. 전송할 값 준비
 //        let param: Parameters = [
 //            "userId": userId,
@@ -24,44 +36,76 @@ class ApiSendViewController: UIViewController {
         AF.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON() { response in
             switch response.result {
             case .success:
-                if let jsonObject = try! response.result.get() as? [String: Any] {
-                    let userId = jsonObject["userId"] as? Int
-                    let id = jsonObject["id"] as? Int
-                    let title = jsonObject["title"] as? String
-                    let completed = jsonObject["completed"] as? Bool
-                    
-                    let parsedResponse = "userId: \(userId!)" + "\n"
-                        + "id: \(id!)" + "\n"
-                        + "title: \(title!)" + "\n"
-                        + "completed: \(completed!)" + "\n\n\n"
-                    
-                    self.ResponseMessageAlert(message: parsedResponse)
+//                if let jsonObject = try! response.result.get() as? [String: Any] {
+//                    let userId = jsonObject["userId"] as? Int
+//                    let id = jsonObject["id"] as? Int
+//                    let title = jsonObject["title"] as? String
+//                    let completed = jsonObject["completed"] as? Bool
+//
+//                    let parsedResponse = "userId: \(userId!)" + "\n"
+//                        + "id: \(id!)" + "\n"
+//                        + "title: \(title!)" + "\n"
+//                        + "completed: \(completed!)" + "\n\n\n"
+//
+//                    self.ResponseMessageAlert(message: parsedResponse)
+//                }
+
+                var found = false
+                
+                // 이름, 생년월일, 성별, 사진 JSON
+                if let jsonObject = try! response.result.get() as? NSArray {
+                    for json in jsonObject {
+                        let element = json as! NSDictionary
+                        
+                        let name = element["name"] as? String
+                        let birth = element["birth"] as? String
+                        let gender = element["gender"] as? String
+                        // let image_field = element["image_field"] as? String
+                        // let created = element["created"] as? String
+                        
+                        if(name == self.tfName.text!) {
+                            let parsedResponse = "name: \(name!)" + "\n"
+                                + "birth: \(birth!)" + "\n"
+                                + "gender: \(gender!)" + "\n"
+                                //+ "created: \(created!)" + "\n"
+                            self.ResponseMessageAlert(message: parsedResponse)
+                            found = true
+                            break
+                        }
+                        
+                    }
+                    if(found == false) {
+                        self.messageAlert(message: "등록되지 않은 사용자입니다. 등록 후 사용해주세요.")
+                    }
                 }
             case .failure(let error):
                 print(error)
                 return
             }
         }
-        
-        /*
-         이름, 생년월일, 성별, 사진 JSON
-         if let jsonObject = try! response.result.get() as? [String: Any] {
-             let userId = jsonObject["이름"] as? String
-             let id = jsonObject["생년월일"] as? String
-             let title = jsonObject["성별"] as? String
-             let completed = jsonObject["사진"] as?
-             
-             let parsedResponse = "userId: \(userId!)" + "\n"
-                 + "id: \(id!)" + "\n"
-                 + "title: \(title!)" + "\n"
-                 + "completed: \(completed!)" + "\n"
-             
-             self.ResponseMessageAlert(message: parsedResponse)
-         }
-         
-         */
     }
     
+    private func apiRegist() {
+        let URL = "http://1.244.160.11:8000/addresses/"
+        let date = DateFormatter()
+        date.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        
+        let param: [String: String] = [
+            "name": tfName.text! ,
+            "birth": tfBirth.text!,
+            "gender": "수컷",
+            "image_field": "",
+            "created": date.string(from: Date())
+        ]
+
+        AF.request(URL, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+            // response.data
+         }
+    }
+    
+    
+    
+    // MARK:- Alert
     private func ResponseMessageAlert(message m: String) {
         let alert = UIAlertController(title: "요청 전송 완료", message: "응답메시지: \n" + m, preferredStyle: .alert)
         
@@ -104,7 +148,25 @@ class ApiSendViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showCCTV() {
-        // 추후 cctv 스트리밍 화면으로 연결되도록 구현할 예정
+    private func messageAlert(message msg: String) {
+        let alert = UIAlertController(title: "알림", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+
+    
+    
+    // MARK:- KEYBOARD SETTING
+    // 화면 터치 시 키보드 자판이 내려가도록 하는 부분
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // 키보드의 Done, 완료 버튼 클릭 시 키보드가 내려가도록 구현
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        tfName.resignFirstResponder()
+        return true
     }
 }
