@@ -19,6 +19,7 @@ class ApiSendViewController: UIViewController {
     
     func showCCTV() {
         // 추후 cctv 스트리밍 화면으로 연결되도록 구현할 예정
+        
     }
     
     // MARK:- API GET/POST
@@ -93,7 +94,7 @@ class ApiSendViewController: UIViewController {
         let param: [String: String] = [
             "name": tfName.text! ,
             "birth": tfBirth.text!,
-            "gender": "남자(수컷)",
+            "gender": "남자",
             "image_field": "",
             "created": date.string(from: Date())
         ]
@@ -103,6 +104,8 @@ class ApiSendViewController: UIViewController {
             case .success:
                 // 등록 성공 시 로직 구현
                 self.messageAlert(message: "정상적으로 등록되었습니다.")
+                print(response)
+                
             case .failure:
                 // 등록 실패 시 로직 구현
                 self.messageAlert(message: "등록에 실패하였습니다.")
