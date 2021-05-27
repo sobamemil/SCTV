@@ -11,13 +11,13 @@
         <!--Item-->
         <scene sceneID="jRg-dB-wmf">
             <objects>
-                <viewController id="qRd-dx-XtO" customClass="VideoStreamingViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vsvc" id="qRd-dx-XtO" customClass="VideoStreamingViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s3p-Ge-Z88">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwh-Ab-P4k">
-                                <rect key="frame" x="145" y="391" width="125" height="30"/>
+                                <rect key="frame" x="145" y="424" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="외부 동영상 재생하기"/>
                                 <connections>
@@ -25,26 +25,26 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://115.86.241.6:81/stream" borderStyle="roundedRect" placeholder="cctv가 연결된 ip주소를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7O-CG-muM">
-                                <rect key="frame" x="79" y="310" width="315" height="34"/>
+                                <rect key="frame" x="79" y="343" width="315" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="url"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IP주소 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-YF-DyA">
-                                <rect key="frame" x="20" y="310" width="57" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-AO-HMY">
-                                <rect key="frame" x="156" y="459" width="103" height="30"/>
+                                <rect key="frame" x="156" y="492" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="cctv 웹 재생하기"/>
                                 <connections>
                                     <action selector="btnShowWeb:" destination="qRd-dx-XtO" eventType="touchUpInside" id="q5z-y9-bym"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IP주소 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-YF-DyA">
+                                <rect key="frame" x="20" y="343" width="57" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wW8-Uz-Ewj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -98,28 +98,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mor-gS-RoY">
-                                <rect key="frame" x="316" y="382" width="58" height="34"/>
+                                <rect key="frame" x="320" y="643" width="58" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="검색하기"/>
                                 <connections>
                                     <action selector="btnApiSend:" destination="ym0-9D-gy6" eventType="touchUpInside" id="qzv-Vt-1e3"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ju-y1-H8V">
-                                <rect key="frame" x="107" y="382" width="191" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Ju-y1-H8V">
+                                <rect key="frame" x="111" y="643" width="191" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이름 :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBf-Mw-DA0">
-                                <rect key="frame" x="35" y="382" width="64" height="34"/>
+                                <rect key="frame" x="39" y="643" width="64" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUA-kT-q3u">
-                                <rect key="frame" x="316" y="442" width="58" height="34"/>
+                                <rect key="frame" x="320" y="703" width="58" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="등록하기"/>
                                 <connections>
@@ -127,24 +127,29 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Gr-1Y-vKc">
-                                <rect key="frame" x="107" y="442" width="191" height="34"/>
+                                <rect key="frame" x="111" y="703" width="191" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="생년월일 :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14T-MC-9CK">
-                                <rect key="frame" x="33" y="442" width="68" height="34"/>
+                                <rect key="frame" x="37" y="703" width="68" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gba-Zp-N29">
+                                <rect key="frame" x="20" y="120" width="374" height="339"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wni-tw-mic"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="8S1-8x-pwL"/>
                     <connections>
+                        <outlet property="imgvImage" destination="gba-Zp-N29" id="QdA-0R-kg3"/>
                         <outlet property="tfBirth" destination="3Gr-1Y-vKc" id="MtJ-aT-6BZ"/>
                         <outlet property="tfName" destination="0Ju-y1-H8V" id="GVv-4h-hWM"/>
                     </connections>
@@ -153,10 +158,48 @@
             </objects>
             <point key="canvasLocation" x="-123.18840579710145" y="828.34821428571422"/>
         </scene>
+        <!--Capture Pre View View Controller-->
+        <scene sceneID="BPE-op-ij7">
+            <objects>
+                <viewController storyboardIdentifier="cpvc" id="eiP-j4-3hh" customClass="CapturePreViewViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eKu-uk-hC6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uyo-cl-mH6" customClass="CapturePreviewView" customModule="SCTV" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="741"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15R-1o-nqa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="사용자 등록" id="fCa-G2-PPd">
+                                        <barButtonItem key="rightBarButtonItem" title="완료" id="Ify-qS-ihr">
+                                            <connections>
+                                                <action selector="btnDone:" destination="eiP-j4-3hh" id="Yqs-Zx-1M5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bcx-sV-VZo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="uyo-cl-mH6" id="dt5-OB-bu2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jtu-f7-BJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698.55072463768124" y="834.375"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0Zr-j4-SBt">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eS2-jc-2t7" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tbc" automaticallyAdjustsScrollViewInsets="NO" id="eS2-jc-2t7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="isf-Zs-I77">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

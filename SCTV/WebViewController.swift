@@ -16,25 +16,31 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // viewDidLoad() 바로 다음에 함수를 호출하여 웹뷰가 즉시 출력될 수 있도록 작성
+        // viewDidLoad() 바로 다음에 함수를 호출하여 웹뷰가 즉시 출력될 수 있도록 작성
         // loadWebPage("http://115.86.241.6:81/stream")
     }
+    
     //웹뷰 로드 기능을 하는 함수 생성
     func loadWebPage(_ url:String) {
-        let myUrl = URL(string: url)
+        var realUrl = url
+        
+        // url에 'www'가 없으면 추가해줌
+        if( !(url.contains("www")) ) {
+            realUrl = "www." + url
+        }
+        
+        // url의 맨 앞이 'http' 혹은 'https'가 아니면 추가해줌
+        if( !(realUrl.hasPrefix("http") || realUrl.hasPrefix("https")) ) {
+            realUrl = "http://" + realUrl
+        }
+        
+        let myUrl = URL(string: realUrl)
         let myRequest = URLRequest(url: myUrl!)
         myWebView.load(myRequest)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         loadWebPage(url!)
     }
-    
-    // 이전 버튼 작동을 위한 구문
-    @IBAction func onBtnBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
 }
 

@@ -12,6 +12,8 @@ import AVFoundation
 
 class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
 
+    var ipAddress: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,11 +37,18 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBOutlet weak var tfIpAddress: UITextField! {
+    @IBOutlet var tfIpAddress: UITextField! {
         didSet {
             tfIpAddress.delegate = self
             tfIpAddress.returnKeyType = .done
+            let ad = UIApplication.shared.delegate as? AppDelegate
+            ad?.ipAddress = tfIpAddress.text
         }
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        ad?.ipAddress = textField.text
     }
     
     @IBAction func btnShowWeb(_ sender: Any) {
