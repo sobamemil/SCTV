@@ -9,8 +9,8 @@ class ApiSendViewController: UIViewController {
     }
     
     @IBAction func btnApiSend(_ sender: Any) {
-        // apiSerch()
-        showCCTV()
+        apiSerch()
+        // showCCTV()
     }
     
     @IBAction func btnRegist(_ sender: Any) {

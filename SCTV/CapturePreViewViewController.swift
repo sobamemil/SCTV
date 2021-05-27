@@ -94,7 +94,6 @@ extension CapturePreViewViewController: VideoCaptureDelegate{
             // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
             let ad = UIApplication.shared.delegate as! AppDelegate
             ad.baseUserImage = ad.baseUserImage + baseImage + "\n"
-            print("here")
         }
     }
 }
