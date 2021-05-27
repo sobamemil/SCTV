@@ -49,6 +49,8 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let ad = UIApplication.shared.delegate as? AppDelegate
         ad?.ipAddress = textField.text
+        print(ad?.ipAddress)
+        print(ad?.baseUserImage)
     }
     
     @IBAction func btnShowWeb(_ sender: Any) {

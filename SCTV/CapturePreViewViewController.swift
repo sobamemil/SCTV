@@ -40,8 +40,9 @@ class CapturePreViewViewController: UIViewController {
     @IBOutlet var previewView: UIView!
     
     @IBAction func btnDone(_ sender: Any) {
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        print(ad?.baseUserImage)
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     /*
@@ -83,11 +84,20 @@ extension CapturePreViewViewController: VideoCaptureDelegate{
         guard let pixelBuffer = pixelBuffer else{ return }
         
         // 모델 학습용 사진 준비
-        print("\n\n\n")
+        // print("\n\n\n")
         let uiImage = UIImage(ciImage: CIImage(cvImageBuffer: pixelBuffer).resize(size: CGSize(width: 200, height: 200)))
-        let baseImage = uiImage.jpegData(compressionQuality: 0.1)?.base64EncodedString()
-        print(baseImage)
-        print("\n\n\n")
+        let baseImage = uiImage.jpegData(compressionQuality: 0.1)!.base64EncodedString()
+        // print(baseImage)
+        // print("\n\n\n")
+        
+        DispatchQueue.main.async {
+            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+                // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
+                let ad = UIApplication.shared.delegate as! AppDelegate
+                ad.baseUserImage = ad.baseUserImage + baseImage + "\n\n\n"
+            })
+            
+        }
     }
 }
 

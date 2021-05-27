@@ -36,7 +36,6 @@ class ApiSendViewController: UIViewController {
             present(wvc, animated: true, completion: nil)
         }
         
-  
 //        if let address = vsvc.tfIpAddress.text {
 //            wvc.url = address
 //            self.present(wvc, animated: true, completion: nil)
@@ -123,7 +122,6 @@ class ApiSendViewController: UIViewController {
         
         // 사용자 얼굴 등록을 할 것인지 물어보는 alert 실행
         registAlert()
-        
         
         
 //        let param: [String: String] = [
@@ -258,9 +256,7 @@ class ApiSendViewController: UIViewController {
                 print("CapturePreViewViewController 인스턴스 생성 실패")
                 return
             }
-            
             self.present(cpvc, animated: true, completion: nil)
-            
         })
         alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
         
