@@ -23,10 +23,11 @@ public class VideoCapture : NSObject{
     //필요한 인스턴스 변수를 정의한다.
     let captureSession = AVCaptureSession()
     let sessionQueue = DispatchQueue(label: "session queue")
+    
     /**
      Frames Per Second; used to throttle capture rate
      */
-    public var fps = 15
+    public var fps = 5
     
     var lastTimestamp = CMTime()
     

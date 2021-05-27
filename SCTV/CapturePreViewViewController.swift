@@ -41,7 +41,7 @@ class CapturePreViewViewController: UIViewController {
     
     @IBAction func btnDone(_ sender: Any) {
         let ad = UIApplication.shared.delegate as? AppDelegate
-        print(ad?.baseUserImage)
+        print(ad!.baseUserImage)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -91,12 +91,10 @@ extension CapturePreViewViewController: VideoCaptureDelegate{
         // print("\n\n\n")
         
         DispatchQueue.main.async {
-            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-                // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
-                let ad = UIApplication.shared.delegate as! AppDelegate
-                ad.baseUserImage = ad.baseUserImage + baseImage + "\n\n\n"
-            })
-            
+            // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
+            let ad = UIApplication.shared.delegate as! AppDelegate
+            ad.baseUserImage = ad.baseUserImage + baseImage + "\n"
+            print("here")
         }
     }
 }
