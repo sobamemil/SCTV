@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // base64 encoded user image
     var baseUserImage = ""
     
+    // userName
+    var name: String?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

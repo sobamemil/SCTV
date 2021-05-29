@@ -27,7 +27,7 @@ public class VideoCapture : NSObject{
     /**
      Frames Per Second; used to throttle capture rate
      */
-    public var fps = 5
+    public var fps = 1
     
     var lastTimestamp = CMTime()
     

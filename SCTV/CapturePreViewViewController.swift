@@ -13,7 +13,6 @@ class CapturePreViewViewController: UIViewController {
 
     let videoCapture: VideoCapture = VideoCapture()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.videoCapture.delegate = self
@@ -40,9 +39,14 @@ class CapturePreViewViewController: UIViewController {
     @IBOutlet var previewView: UIView!
     
     @IBAction func btnDone(_ sender: Any) {
-        let ad = UIApplication.shared.delegate as? AppDelegate
-        print(ad!.baseUserImage)
-        self.dismiss(animated: true, completion: nil)
+        // let ad = UIApplication.shared.delegate as? AppDelegate
+        // print(ad!.baseUserImage)
+        
+        let asvc = ApiSendViewController()
+        
+        self.dismiss(animated: true) {
+            asvc.apiRegist()
+        }
     }
     
     /*
@@ -85,15 +89,16 @@ extension CapturePreViewViewController: VideoCaptureDelegate{
         
         // 모델 학습용 사진 준비
         // print("\n\n\n")
-        let uiImage = UIImage(ciImage: CIImage(cvImageBuffer: pixelBuffer).resize(size: CGSize(width: 200, height: 200)))
-        let baseImage = uiImage.jpegData(compressionQuality: 0.1)!.base64EncodedString()
+        let uiImage = UIImage(ciImage: CIImage(cvImageBuffer: pixelBuffer).resize(size: CGSize(width: 400, height: 600)))
+        let baseImage = uiImage.jpegData(compressionQuality: 0.5)!.base64EncodedString()
         // print(baseImage)
         // print("\n\n\n")
         
         DispatchQueue.main.async {
             // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
             let ad = UIApplication.shared.delegate as! AppDelegate
-            ad.baseUserImage = ad.baseUserImage + baseImage + "\n"
+            //ad.baseUserImage = ad.baseUserImage + baseImage + "\n"
+            ad.baseUserImage = baseImage
         }
     }
 }

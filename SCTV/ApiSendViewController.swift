@@ -14,13 +14,21 @@ class ApiSendViewController: UIViewController {
     }
     
     @IBAction func btnRegist(_ sender: Any) {
-        apiRegist()
+        // 사용자 얼굴 등록을 할 것인지 물어보는 alert 실행
+        registAlert()
+        
+        // apiRegist()
         // apiImageSend()
     }
     
-    @IBOutlet weak var tfName: UITextField!
-    @IBOutlet weak var tfBirth: UITextField!
-    @IBOutlet weak var imgvImage: UIImageView!
+    @IBOutlet var tfName: UITextField! {
+        didSet {
+            tfName.delegate = self
+            tfName.returnKeyType = .done
+        }
+    }
+    @IBOutlet var tfBirth: UITextField!
+    @IBOutlet var imgvImage: UIImageView!
     
     var baseImage: String?
     
@@ -62,11 +70,13 @@ class ApiSendViewController: UIViewController {
                 
                 if let jsonObject = try! response.result.get() as? NSArray {
                     for json in jsonObject {
+                        // print(json)
                         let element = json as! NSDictionary
+                        // let name = String(unicodeScalarLiteral: element["name"] as! String) // 유니코드로 이상하게 나오지 않도록 변환
                         let name = element["name"] as? String
                         let content = element["content"] as? String
                         self.baseImage = element["image"] as? String
-
+                        
                         if(name == self.tfName.text!) {
                             let parsedResponse = "name: \(name!)" + "\n"
                                 + "content: \(content!)" + "\n\n\n"
@@ -111,38 +121,38 @@ class ApiSendViewController: UIViewController {
         }
     }
     
-    private func apiRegist() {
+    func apiRegist() {
 //        let date = DateFormatter()
 //        date.dateFormat = "YYYY-MM-dd HH:mm:ss"
         
         let url = "http://1.244.160.11:8000/cctvapp/Person/"
+//        let url = "https://ptsv2.com/t/e8u30-1622135905/post"
 
-        let image = UIImage(named: "cat.jpeg")!
-        let baseImage = image.jpegData(compressionQuality: 0.1)?.base64EncodedString()
+//        let image = UIImage(named: "cat.jpeg")!
+//        let baseImage = image.jpegData(compressionQuality: 0.1)?.base64EncodedString()
         
-        // 사용자 얼굴 등록을 할 것인지 물어보는 alert 실행
-        registAlert()
+        let ad = UIApplication.shared.delegate as! AppDelegate
         
+        let param: [String: String] = [
+            "User_id": "1",
+            "name": (UIApplication.shared.delegate as! AppDelegate).name ?? "이름없음" ,
+            "content": "empty",
+            "image": ad.baseUserImage
+        ]
         
-//        let param: [String: String] = [
-//            "name": tfName.text! ,
-//            "content": "empty",
-//            "image": baseImage!
-//        ]
-//
-//        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
-//            switch response.result {
-//            case .success:
-//                // 등록 성공 시 로직 구현
-//                self.messageAlert(message: "정상적으로 등록되었습니다.")
-//                print(response)
-//
-//            case .failure:
-//                // 등록 실패 시 로직 구현
-//                self.messageAlert(message: "등록에 실패하였습니다.")
-//                NSLog("regist error (POST)")
-//            }
-//         }
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+            switch response.result {
+            case .success:
+                // 등록 성공 시 로직 구현
+                self.messageAlert(message: "정상적으로 등록되었습니다.")
+                print(response)
+
+            case .failure:
+                // 등록 실패 시 로직 구현
+                self.messageAlert(message: "등록에 실패하였습니다.")
+                NSLog("regist error (POST)")
+            }
+         }
     }
     
 //    private func apiImageSend() {
@@ -202,7 +212,7 @@ class ApiSendViewController: UIViewController {
     private func ResponseMessageAlert(message m: String) {
         let alert = UIAlertController(title: "요청 전송 완료", message: "응답메시지: \n" + m, preferredStyle: .alert)
                 
-        // URL에 있는 이미지 파일을 가져와서 UIImage 형식으로 저장
+        // 이미지 파일을 가져와서 UIImage 형식으로 저장
         let dataDecoded:NSData = NSData(base64Encoded: self.baseImage!, options: NSData.Base64DecodingOptions(rawValue: 0))!
         let image: UIImage = UIImage(data: dataDecoded as Data)!
 //        let url = URL(string: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE")
@@ -239,14 +249,14 @@ class ApiSendViewController: UIViewController {
         })
                 
         // 알림창을 띄움
-        present(alert, animated: true, completion: nil)
+        self.topViewController()!.present(alert, animated: true, completion: nil)
     }
     
     func messageAlert(message msg: String) {
         let alert = UIAlertController(title: "알림", message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         
-        self.present(alert, animated: true, completion: nil)
+        self.topViewController()!.present(alert, animated: true, completion: nil)
     }
     
     private func registAlert() {
@@ -256,11 +266,11 @@ class ApiSendViewController: UIViewController {
                 print("CapturePreViewViewController 인스턴스 생성 실패")
                 return
             }
-            self.present(cpvc, animated: true, completion: nil)
+            self.topViewController()!.present(cpvc, animated: true, completion: nil)
         })
         alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
         
-        self.present(alert, animated: true, completion: nil)
+        self.topViewController()!.present(alert, animated: true, completion: nil)
     }
     
 
@@ -294,4 +304,26 @@ extension UIImage {
 }
 
 
+// MARK:- topViewController
+extension ApiSendViewController {
+    func topViewController() -> UIViewController? {
+        if let keyWindow = UIApplication.shared.keyWindow {
+            if var viewController = keyWindow.rootViewController {
+                while viewController.presentedViewController != nil {
+                    viewController = viewController.presentedViewController!
+                }
+                print("topViewController -> \(String(describing: viewController))")
+                return viewController
+            }
+        }
+        return nil
+    }
+}
 
+
+// MARK:- UITextFieldDelegate
+extension ApiSendViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        (UIApplication.shared.delegate as! AppDelegate).name = self.tfName.text!
+    }
+}
