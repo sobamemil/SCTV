@@ -15,10 +15,17 @@ class ViewController: UIViewController {
         
         // 모서리 굴곡 설정
         showCCTVOutlet.layer.cornerRadius = 10
+        eventExistRequestOutlet.layer.cornerRadius = 10
+        searchUserOutlet.layer.cornerRadius = 10
+        notSetFuncionOutlet.layer.cornerRadius = 10
     }
     
     @IBOutlet weak var userOutlet: UIButton!
     @IBOutlet weak var showCCTVOutlet: UIButton!
+    @IBOutlet weak var eventExistRequestOutlet: UIButton!
+    @IBOutlet weak var searchUserOutlet: UIButton!
+    @IBOutlet weak var notSetFuncionOutlet: UIButton!
+    
     
     var baseImage: String?
     

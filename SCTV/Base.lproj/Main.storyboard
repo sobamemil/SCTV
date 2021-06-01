@@ -319,6 +319,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="eventExistRequestOutlet" destination="CJ3-jL-hUF" id="JFa-nB-wp5"/>
+                        <outlet property="notSetFuncionOutlet" destination="st5-O1-MJJ" id="rq7-ff-YOB"/>
+                        <outlet property="searchUserOutlet" destination="mIe-Zx-9h5" id="H8c-I3-AQk"/>
                         <outlet property="showCCTVOutlet" destination="PtQ-KJ-GNO" id="y5n-JI-oop"/>
                         <outlet property="userOutlet" destination="XxN-h3-ZMJ" id="PZb-hv-OQK"/>
                     </connections>
