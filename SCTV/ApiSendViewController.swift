@@ -27,6 +27,7 @@ class ApiSendViewController: UIViewController {
             tfName.returnKeyType = .done
         }
     }
+    
     @IBOutlet var tfBirth: UITextField!
     @IBOutlet var imgvImage: UIImageView!
     
