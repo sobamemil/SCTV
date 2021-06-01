@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57143B392666101A0007C931 /* LanchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57143B382666101A0007C931 /* LanchScreenViewController.swift */; };
 		57143B3B266610AB0007C931 /* cctv.png in Resources */ = {isa = PBXBuildFile; fileRef = 57143B3A266610AB0007C931 /* cctv.png */; };
+		57143B3D26661BEF0007C931 /* LS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57143B3C26661BEF0007C931 /* LS.storyboard */; };
 		5719A2ED264CE8C000E0E0C3 /* VideoStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */; };
 		571C850B265E6A9700FC539F /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 571C850A265E6A9700FC539F /* cat.jpeg */; };
 		571C850D265FDC2D00FC539F /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C850C265FDC2D00FC539F /* VideoCapture.swift */; };
@@ -20,7 +20,6 @@
 		572274452647CF0400D2E4A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572274432647CF0400D2E4A1 /* Main.storyboard */; };
 		572274482647CF0400D2E4A1 /* SCTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 572274462647CF0400D2E4A1 /* SCTV.xcdatamodeld */; };
 		5722744A2647CF0500D2E4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572274492647CF0500D2E4A1 /* Assets.xcassets */; };
-		5722744D2647CF0500D2E4A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5722744B2647CF0500D2E4A1 /* LaunchScreen.storyboard */; };
 		57321DC4264D59F300707C60 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57321DC3264D59F300707C60 /* WebKit.framework */; };
 		57321DC6264D5B4B00707C60 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57321DC5264D5B4B00707C60 /* WebViewController.swift */; };
 		57B5D0F22652B3BD00AB7CD0 /* ApiSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */; };
@@ -28,8 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57143B382666101A0007C931 /* LanchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanchScreenViewController.swift; sourceTree = "<group>"; };
 		57143B3A266610AB0007C931 /* cctv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cctv.png; sourceTree = "<group>"; };
+		57143B3C26661BEF0007C931 /* LS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LS.storyboard; sourceTree = "<group>"; };
 		5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStreamingViewController.swift; sourceTree = "<group>"; };
 		571C850A265E6A9700FC539F /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 		571C850C265FDC2D00FC539F /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
@@ -42,7 +41,6 @@
 		572274442647CF0400D2E4A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		572274472647CF0400D2E4A1 /* SCTV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SCTV.xcdatamodel; sourceTree = "<group>"; };
 		572274492647CF0500D2E4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5722744C2647CF0500D2E4A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5722744E2647CF0500D2E4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57321DC3264D59F300707C60 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		57321DC5264D5B4B00707C60 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -112,11 +110,10 @@
 				5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */,
 				57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */,
 				571C8513265FE17C00FC539F /* CapturePreViewViewController.swift */,
-				57143B382666101A0007C931 /* LanchScreenViewController.swift */,
 				571C850E265FDCC700FC539F /* VideoCaptureAndImage */,
 				57321DC5264D5B4B00707C60 /* WebViewController.swift */,
 				572274492647CF0500D2E4A1 /* Assets.xcassets */,
-				5722744B2647CF0500D2E4A1 /* LaunchScreen.storyboard */,
+				57143B3C26661BEF0007C931 /* LS.storyboard */,
 				5722744E2647CF0500D2E4A1 /* Info.plist */,
 				572274462647CF0400D2E4A1 /* SCTV.xcdatamodeld */,
 			);
@@ -200,11 +197,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5722744D2647CF0500D2E4A1 /* LaunchScreen.storyboard in Resources */,
 				5722744A2647CF0500D2E4A1 /* Assets.xcassets in Resources */,
 				571C850B265E6A9700FC539F /* cat.jpeg in Resources */,
 				57143B3B266610AB0007C931 /* cctv.png in Resources */,
 				572274452647CF0400D2E4A1 /* Main.storyboard in Resources */,
+				57143B3D26661BEF0007C931 /* LS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				572274482647CF0400D2E4A1 /* SCTV.xcdatamodeld in Sources */,
-				57143B392666101A0007C931 /* LanchScreenViewController.swift in Sources */,
 				571C850D265FDC2D00FC539F /* VideoCapture.swift in Sources */,
 				571C8514265FE17C00FC539F /* CapturePreViewViewController.swift in Sources */,
 				57B5D0F22652B3BD00AB7CD0 /* ApiSendViewController.swift in Sources */,
@@ -280,14 +276,6 @@
 				572274442647CF0400D2E4A1 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5722744B2647CF0500D2E4A1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5722744C2647CF0500D2E4A1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

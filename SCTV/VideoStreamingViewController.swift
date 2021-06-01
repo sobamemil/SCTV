@@ -30,6 +30,7 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btnStartStreaming(_ sender: UIButton) {
         if let address = tfIpAddress.text { // textField로부터 ip주소를 가져옴
             let url = NSURL(string: address)! // NSURL 생성
+            
             startStreaming(url: url) // 스트리밍 시작 메소드 호출
         }
         else { // textField에 값이 없으면 예외처리
@@ -42,13 +43,14 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
             tfIpAddress.delegate = self
             tfIpAddress.returnKeyType = .done
             let ad = UIApplication.shared.delegate as? AppDelegate
-            ad?.ipAddress = tfIpAddress.text
+            
+            // ad?.ipAddress = tfIpAddress.text
         }
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let ad = UIApplication.shared.delegate as? AppDelegate
-        ad?.ipAddress = textField.text
+        // ad?.ipAddress = textField.text
     }
     
     @IBAction func btnShowWeb(_ sender: Any) {
@@ -56,10 +58,16 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        if let address = tfIpAddress.text {
-            wvc.url = address
-            self.present(wvc, animated: true, completion: nil)
-        }
+//        if let address = tfIpAddress.text {
+//            wvc.url = address
+//            self.present(wvc, animated: true, completion: nil)
+//        }
+        //
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        //
+        wvc.url = ad?.ipAddress
+        self.present(wvc, animated: true, completion: nil)
+        
     }
     
     

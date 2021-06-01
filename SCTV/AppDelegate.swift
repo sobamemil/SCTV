@@ -12,7 +12,8 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // CCTV ip address
-    var ipAddress: String?
+    // var ipAddress = "http://115.86.241.6:81/stream"
+    var ipAddress = "https://www.naver.com"
 
     // base64 encoded user image
     var baseUserImage = ""
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        sleep(3)
+        
         return true
     }
 
@@ -39,9 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        sleep(2)
-    }
+    
 
     // MARK: - Core Data stack
 
