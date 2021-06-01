@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		57143B3B266610AB0007C931 /* cctv.png in Resources */ = {isa = PBXBuildFile; fileRef = 57143B3A266610AB0007C931 /* cctv.png */; };
 		57143B3D26661BEF0007C931 /* LS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57143B3C26661BEF0007C931 /* LS.storyboard */; };
+		57143B3F266625FE0007C931 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57143B3E266625FD0007C931 /* ViewController.swift */; };
 		5719A2ED264CE8C000E0E0C3 /* VideoStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */; };
 		571C850B265E6A9700FC539F /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 571C850A265E6A9700FC539F /* cat.jpeg */; };
 		571C850D265FDC2D00FC539F /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C850C265FDC2D00FC539F /* VideoCapture.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		57143B3A266610AB0007C931 /* cctv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cctv.png; sourceTree = "<group>"; };
 		57143B3C26661BEF0007C931 /* LS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LS.storyboard; sourceTree = "<group>"; };
+		57143B3E266625FD0007C931 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStreamingViewController.swift; sourceTree = "<group>"; };
 		571C850A265E6A9700FC539F /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 		571C850C265FDC2D00FC539F /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				572274432647CF0400D2E4A1 /* Main.storyboard */,
 				5719A2EC264CE8C000E0E0C3 /* VideoStreamingViewController.swift */,
 				57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */,
+				57143B3E266625FD0007C931 /* ViewController.swift */,
 				571C8513265FE17C00FC539F /* CapturePreViewViewController.swift */,
 				571C850E265FDCC700FC539F /* VideoCaptureAndImage */,
 				57321DC5264D5B4B00707C60 /* WebViewController.swift */,
@@ -258,6 +261,7 @@
 				571C850D265FDC2D00FC539F /* VideoCapture.swift in Sources */,
 				571C8514265FE17C00FC539F /* CapturePreViewViewController.swift in Sources */,
 				57B5D0F22652B3BD00AB7CD0 /* ApiSendViewController.swift in Sources */,
+				57143B3F266625FE0007C931 /* ViewController.swift in Sources */,
 				5719A2ED264CE8C000E0E0C3 /* VideoStreamingViewController.swift in Sources */,
 				5722743E2647CF0400D2E4A1 /* AppDelegate.swift in Sources */,
 				57321DC6264D5B4B00707C60 /* WebViewController.swift in Sources */,
