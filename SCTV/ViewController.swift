@@ -10,6 +10,9 @@ import Alamofire
 
 class ViewController: UIViewController {
     
+    var userName = ""
+    var userId = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,7 +61,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnSearchUser(_ sender: Any) {
-        
+        searchUserAlert()
     }
     
     
@@ -100,13 +103,13 @@ class ViewController: UIViewController {
             textField.autocapitalizationType = .none
         }
         
-        alert.addAction(UIAlertAction(title: "조회하기", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "조회하기", style: .default) { _ in
+            self.userName = alert.textFields?[0].text ?? "입력된 사용자 이름 없음"
+            self.userId = alert.textFields?[1].text ?? "입력된 사용자 아이디 없음"
+        })
         alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
         
-        self.present(alert, animated: true) {
-            // 알림창이 내려갈 때 수행되는 코드
-            self.messageAlert(title: "사용자 조회 API 테스트 알림", message: "입력한 사용자 이름: \(alert.textFields?[0].text)\n입력한 사용자 아이디: \(alert.textFields?[1].text)")
-        }
+        self.present(alert, animated: true)
     }
 }
 
