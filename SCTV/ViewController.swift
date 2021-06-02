@@ -42,12 +42,6 @@ class ViewController: UIViewController {
     @IBAction func btnEventRequest(_ sender: Any) {
         let ad = UIApplication.shared.delegate as! AppDelegate
         let serverAddress = ad.webServerIpAddress
-            print(serverAddress)
-//        let param = [
-//            "name" : "심찬영",
-//            "image" : "bae64String",
-//            "created_at" : "now"
-//        ]
         
         let param: [String: Any] = [
             "content" : "chanyeong" as String,
@@ -61,37 +55,18 @@ class ViewController: UIViewController {
                 print("성공")
                 print(response)
                 let ad = UIApplication.shared.delegate as! AppDelegate
-                //ad.baseUserImage = response[""]
-                self.ResponseMessageAlert(title: "침입자 있음", "침입자 얼굴: ")
+                self.ResponseMessageAlert(title: "침입자 있음")
                 // self.messageAlert(title: "요청 성공", message: "정상 처리되었습니다.")
 
             case .failure:
                 // 실패 시 처리
                 print("실패")
-                print(response)
                 self.messageAlert(title: "서버 요청 실패", message: "서버 상태를 확인해주세요.")
             }
         }
-        
-//        let url = "http://192.168.35.194:80/testapp/Test/"
-//
-//        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
-//            switch response.result {
-//            case .success:
-//                // 등록 성공 시 로직 구현
-//                //self.messageAlert(message: "정상적으로 등록되었습니다.")
-//                print(response)
-//
-//            case .failure:
-//                // 등록 실패 시 로직 구현
-//                //self.messageAlert(message: "등록에 실패하였습니다.")
-//                NSLog("regist error (POST)")
-//            }
-//         }
     }
     
     @IBAction func btnRegistUser(_ sender: Any) {
-        // searchUserAlert()
         // 사용자 등록
         self.registAlert1()
     }
@@ -185,8 +160,8 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    private func ResponseMessageAlert(title: String, _ m: String) {
-        let alert = UIAlertController(title: "요청 전송 완료", message: "응답메시지: \n" + m, preferredStyle: .alert)
+    private func ResponseMessageAlert(title: String) {
+        let alert = UIAlertController(title: "요청 전송 완료", message: nil, preferredStyle: .alert)
                 
         // 이미지 파일을 가져와서 UIImage 형식으로 저장
 //        let dataDecoded: NSData? = NSData(base64Encoded: self.baseImage!, options: NSData.Base64DecodingOptions(rawValue: 0))
