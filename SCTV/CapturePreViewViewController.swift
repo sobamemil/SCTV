@@ -12,6 +12,7 @@ import CoreVideo
 class CapturePreViewViewController: UIViewController {
 
     let videoCapture: VideoCapture = VideoCapture()
+    var imageCount: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,10 +96,15 @@ extension CapturePreViewViewController: VideoCaptureDelegate{
         // print("\n\n\n")
         
         DispatchQueue.main.async {
-            // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
-            let ad = UIApplication.shared.delegate as! AppDelegate
-            //ad.baseUserImage = ad.baseUserImage + baseImage + "\n"
-            ad.baseUserImage = baseImage
+            if(!(self.imageCount > 69)) {
+                // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
+                let ad = UIApplication.shared.delegate as! AppDelegate
+                ad.baseUserImage = ad.baseUserImage + baseImage + "엔터"
+                // ad.baseUserImage = baseImage
+                self.imageCount += 1
+            } else {
+                self.btnDone(self)
+            }
         }
     }
 }

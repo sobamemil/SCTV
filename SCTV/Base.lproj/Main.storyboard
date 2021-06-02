@@ -214,7 +214,7 @@
         <!--View Controller-->
         <scene sceneID="dpJ-yS-v5Z">
             <objects>
-                <viewController id="arq-NU-4XX" customClass="ViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc" id="arq-NU-4XX" customClass="ViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Mt-hy-fDP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

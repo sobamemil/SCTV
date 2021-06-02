@@ -17,8 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var CCTVipAddress = "CCTV의 IP주소를 입력하세요."
     
     // web server ip address
-    var webServerIpAddress = "http://1.244.160.11:8000/cctvapp/Person/"
-// "https://ptsv2.com/t/2wyi4-1622630686/post"
+    var webServerIpAddress = "http://1.244.160.11:8000/cctvapp/Person/" // 민호형 서버
+    // var webServerIpAddress = "http://115.86.241.6:8000/testapp/Test/" // 윤호 서버
+
+    // "https://ptsv2.com/t/2wyi4-1622630686/post" // RESTful test server
     
     // 신원 불분명자 침입 시 신고할 번호
     var reportNumber = "이 번호는 신고 시 사용됩니다."
@@ -31,7 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var baseUserImage = ""
     
     // userName
-    var name: String?
+    var name = ""
+    
+    // 특이사항
+    var content = "empty"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

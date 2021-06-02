@@ -137,11 +137,11 @@ class ApiSendViewController: UIViewController {
         
         let ad = UIApplication.shared.delegate as! AppDelegate
         
-        let param: [String: String] = [
-            "User_id": "1",
-            "name": (UIApplication.shared.delegate as! AppDelegate).name ?? "이름없음" ,
-            "content": "empty",
-            "image": ad.baseUserImage
+        let param: [String: Any] = [
+            "name" : ad.name as String,
+            "Owner": 3 as Int,
+            "content": ad.content as String,
+            "image": ad.baseUserImage as String
         ]
         
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in

@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // 모서리 굴곡 설정
         showCCTVOutlet.layer.cornerRadius = 10
         eventExistRequestOutlet.layer.cornerRadius = 10
@@ -54,24 +53,23 @@ class ViewController: UIViewController {
             "content" : "chanyeong" as String,
             "image" : "base64String" as String
         ]
-        
-        DispatchQueue.main.async {
-            AF.request(serverAddress , method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
-                switch response.result {
-                case .success:
-                    // 성공 시 처리
-                    print("성공")
-                    print(response)
-                    
-                    self.ResponseMessageAlert(title: "침입자 있음", "침입자 얼굴: ")
-                    // self.messageAlert(title: "요청 성공", message: "정상 처리되었습니다.")
 
-                case .failure:
-                    // 실패 시 처리
-                    print("실패")
-                    print(response)
-                    self.messageAlert(title: "서버 요청 실패", message: "서버 상태를 확인해주세요.")
-                }
+        AF.request(serverAddress , method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
+            switch response.result {
+            case .success:
+                // 성공 시 처리
+                print("성공")
+                print(response)
+                let ad = UIApplication.shared.delegate as! AppDelegate
+                //ad.baseUserImage = response[""]
+                self.ResponseMessageAlert(title: "침입자 있음", "침입자 얼굴: ")
+                // self.messageAlert(title: "요청 성공", message: "정상 처리되었습니다.")
+
+            case .failure:
+                // 실패 시 처리
+                print("실패")
+                print(response)
+                self.messageAlert(title: "서버 요청 실패", message: "서버 상태를 확인해주세요.")
             }
         }
         
@@ -136,23 +134,21 @@ class ViewController: UIViewController {
     }
     
     func apiRegist() {
-        let url = "http://1.244.160.11:8000/cctvapp/Person/"
-
         let ad = UIApplication.shared.delegate as! AppDelegate
         
-        let param: [String: String] = [
-            "User_id": "1",
-            "name": (UIApplication.shared.delegate as! AppDelegate).name ?? "이름없음" ,
-            "content": "empty",
-            "image": ad.baseUserImage
+        let param: [String: Any] = [
+            "name" : "3번 사용자" as String,
+            "Owner": 3 as Int,
+            "content": "empty" as String,
+            "image": ad.baseUserImage as String
         ]
         
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+        AF.request(ad.webServerIpAddress , method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             switch response.result {
             case .success:
                 // 등록 성공 시 로직 구현
                 self.messageAlert(title: "사용자 등록 성공", message: "정상적으로 등록되었습니다.")
-                print(response)
+                //print(response)
 
             case .failure:
                 // 등록 실패 시 로직 구현
