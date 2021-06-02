@@ -25,6 +25,7 @@
 		57321DC6264D5B4B00707C60 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57321DC5264D5B4B00707C60 /* WebViewController.swift */; };
 		57B5D0F22652B3BD00AB7CD0 /* ApiSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */; };
 		57F8091026673A1300095B57 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8090F26673A1300095B57 /* SettingViewController.swift */; };
+		57F8091226677A4300095B57 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F8091126677A4300095B57 /* MessageUI.framework */; };
 		5E13F9D241B8166150068931 /* Pods_SCTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E545490FFAB3D0F8B767D9DD /* Pods_SCTV.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		57321DC5264D5B4B00707C60 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiSendViewController.swift; sourceTree = "<group>"; };
 		57F8090F26673A1300095B57 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		57F8091126677A4300095B57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7A9484A03C1A900DDFD67339 /* Pods-SCTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCTV.debug.xcconfig"; path = "Target Support Files/Pods-SCTV/Pods-SCTV.debug.xcconfig"; sourceTree = "<group>"; };
 		83F864DCA68B11DA3B92D58D /* Pods-SCTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCTV.release.xcconfig"; path = "Target Support Files/Pods-SCTV/Pods-SCTV.release.xcconfig"; sourceTree = "<group>"; };
 		E545490FFAB3D0F8B767D9DD /* Pods_SCTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 			files = (
 				57321DC4264D59F300707C60 /* WebKit.framework in Frameworks */,
 				5E13F9D241B8166150068931 /* Pods_SCTV.framework in Frameworks */,
+				57F8091226677A4300095B57 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +132,7 @@
 		57321DC2264D59F300707C60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57F8091126677A4300095B57 /* MessageUI.framework */,
 				57321DC3264D59F300707C60 /* WebKit.framework */,
 				E545490FFAB3D0F8B767D9DD /* Pods_SCTV.framework */,
 			);

@@ -44,13 +44,13 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
             tfIpAddress.returnKeyType = .done
             let ad = UIApplication.shared.delegate as? AppDelegate
             
-            // ad?.ipAddress = tfIpAddress.text
+            ad?.CCTVipAddress = tfIpAddress.text!
         }
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let ad = UIApplication.shared.delegate as? AppDelegate
-        // ad?.ipAddress = textField.text
+        ad?.CCTVipAddress = textField.text!
     }
     
     @IBAction func btnShowWeb(_ sender: Any) {
@@ -65,9 +65,10 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
         //
         let ad = UIApplication.shared.delegate as? AppDelegate
         //
-        wvc.url = ad?.ipAddress
-        self.present(wvc, animated: true, completion: nil)
         
+        wvc.url = ad!.CCTVipAddress
+        self.present(wvc, animated: true, completion: nil)
+        print("ip: \(ad!.CCTVipAddress)")
     }
     
     

@@ -40,7 +40,7 @@ class ApiSendViewController: UIViewController {
         }
                 
         let ad = UIApplication.shared.delegate as? AppDelegate
-        if let ip = ad?.ipAddress {
+        if let ip = ad?.CCTVipAddress {
             wvc.url = ip
             present(wvc, animated: true, completion: nil)
         }
@@ -55,20 +55,21 @@ class ApiSendViewController: UIViewController {
     private func apiSerch() {
         //접근하고자 하는 URL 정보
         // let URL = "https://jsonplaceholder.typicode.com/todos/3"
-        let URL = "http://1.244.160.11:8000/cctvapp/Person/"
+        let url = "http://1.244.160.11:8000/cctvapp/Person/"
+        //let url = (UIApplication.shared.delegate as! AppDelegate).webServerIpAddress
         
         // 1. 전송할 값 준비
-        let param: Parameters = [
-            "name": tfName.text!
-        ]
-        
+        let param: [String:String] = [
+            "name": tfName.text!,
+            ]
+        print(url)
         // 전송
-        AF.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON() { response in
+        AF.request(url, method: .get, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON() { response in
             switch response.result {
             case .success:
-                
+                print("respose: \(response)")
+
                 var found = false
-                
                 if let jsonObject = try! response.result.get() as? NSArray {
                     for json in jsonObject {
                         // print(json)
@@ -116,7 +117,9 @@ class ApiSendViewController: UIViewController {
                     }
 //                }
             case .failure(let error):
-                print(error)
+//                print(response)
+//                print(error)
+                print("왜안돼?")
                 return
             }
         }
@@ -145,6 +148,7 @@ class ApiSendViewController: UIViewController {
             switch response.result {
             case .success:
                 // 등록 성공 시 로직 구현
+                print(url)
                 self.messageAlert(message: "정상적으로 등록되었습니다.")
                 print(response)
 
@@ -248,7 +252,7 @@ class ApiSendViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "CCTV 보기", style: .destructive) { (_) in
             self.showCCTV()
         })
-                
+        
         // 알림창을 띄움
         self.topViewController()!.present(alert, animated: true, completion: nil)
     }

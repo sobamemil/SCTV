@@ -13,8 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // CCTV ip address
     // var ipAddress = "http://115.86.241.6:81/stream"
-    var ipAddress = "https://www.naver.com"
+    // var ipAddress = "https://www.naver.com"
+    var CCTVipAddress = "CCTV의 IP주소를 입력하세요."
+    
+    // web server ip address
+    var webServerIpAddress = "http://1.244.160.11:8000/cctvapp/Person/"
+// "https://ptsv2.com/t/2wyi4-1622630686/post"
+    
+    // 신원 불분명자 침입 시 신고할 번호
+    var reportNumber = "이 번호는 신고 시 사용됩니다."
 
+    
+    // 신고 시 출동할 주소
+    var userAddress = "cctv가 설치된 장소를 정확히 입력하세요."
+    
     // base64 encoded user image
     var baseUserImage = ""
     
