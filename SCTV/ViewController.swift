@@ -193,8 +193,9 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "요청 전송 완료", message: "응답메시지: \n" + m, preferredStyle: .alert)
                 
         // 이미지 파일을 가져와서 UIImage 형식으로 저장
-        let dataDecoded:NSData = NSData(base64Encoded: self.baseImage!, options: NSData.Base64DecodingOptions(rawValue: 0))!
-        let image: UIImage = UIImage(data: dataDecoded as Data)!
+//        let dataDecoded: NSData? = NSData(base64Encoded: self.baseImage!, options: NSData.Base64DecodingOptions(rawValue: 0))
+//        let image: UIImage = UIImage(data: dataDecoded! as Data)!
+        let image = UIImage(named: "no_face.jpeg")
 //        let url = URL(string: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE")
 //
         
@@ -266,8 +267,4 @@ extension ViewController: MFMessageComposeViewControllerDelegate {
         }
     }
 }
-
-
-
-
 

@@ -1,20 +1,19 @@
 //
-//  WebViewController.swift
+//  WebController.swift
 //  SCTV
 //
-//  Created by 심찬영 on 2021/05/13.
+//  Created by 심찬영 on 2021/06/03.
 //
 
 import UIKit
 import WebKit // WebView 사용을 위한 패키지 임포트
 
-class WebViewController: UIViewController, WKUIDelegate {
+class WebController: UIViewController, WKUIDelegate {
     var url: String?
     
 //    @IBOutlet weak var myWebView: WKWebView!
-//    var webView: WKWebView!
+    var webView: WKWebView!
     
-    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +21,13 @@ class WebViewController: UIViewController, WKUIDelegate {
         // loadWebPage("http://115.86.241.6:81/stream")
     }
     
+    override func loadView() {
+          let webConfiguration = WKWebViewConfiguration()
+          webView = WKWebView(frame: .zero, configuration: webConfiguration)
+          webView.uiDelegate = self
+          view = webView
+      }
+
     //웹뷰 로드 기능을 하는 함수 생성
     func loadWebPage(_ url:String) {
 //        var realUrl = url
@@ -39,23 +45,18 @@ class WebViewController: UIViewController, WKUIDelegate {
 //        print("changed ip: \(realUrl)")
 //
 //        // https://www.naver.com
-//        DispatchQueue.main.async {
-//            // url 확인 후 정상적인 url이 아니면 오류 알림창 띄움
-//            if( self.verifyUrl(urlString: url)) {
-//                let myUrl = URL(string: url)
-//                let myRequest = URLRequest(url: myUrl!)
-//                self.myWebView.load(myRequest)
-//            } else {
-//                let alert = UIAlertController(title: "URL 오류", message: "URL을 확인하세요.", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-//                    self.dismiss(animated: true, completion: nil)
-//                })
-//                self.present(alert, animated: true, completion: nil)
-//            }
-//        }
-        let myURL = URL(string:"https://www.apple.com")
-           let myRequest = URLRequest(url: myURL!)
-           webView.load(myRequest)
+        // url 확인 후 정상적인 url이 아니면 오류 알림창 띄움
+        if( self.verifyUrl(urlString: url)) {
+            let myUrl = URL(string: url)
+            let myRequest = URLRequest(url: myUrl!)
+            webView.load(myRequest)
+        } else {
+            let alert = UIAlertController(title: "URL 오류", message: "URL을 확인하세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+                self.dismiss(animated: true, completion: nil)
+            })
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // url validation method
