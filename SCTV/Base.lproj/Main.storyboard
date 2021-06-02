@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l96-AT-9AL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-659" y="804"/>
+            <point key="canvasLocation" x="250.72463768115944" y="803.57142857142856"/>
         </scene>
         <!--Capture Pre View View Controller-->
         <scene sceneID="BPE-op-ij7">
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jtu-f7-BJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698.55072463768124" y="834.375"/>
+            <point key="canvasLocation" x="1608.6956521739132" y="834.375"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0Zr-j4-SBt">
@@ -270,6 +270,9 @@
                                             <constraint firstAttribute="height" constant="41" id="AD3-ag-u1q"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="person.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="btnSetting:" destination="arq-NU-4XX" eventType="touchUpInside" id="WPI-9h-gVa"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Smart CCTV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-fI-cWt">
                                         <rect key="frame" x="18" y="13" width="178" height="38"/>
@@ -332,6 +335,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1p-fe-Pz3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2255.072463768116" y="117.85714285714285"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="9a2-dl-Luk">
+            <objects>
+                <viewController storyboardIdentifier="svc" id="qFG-hf-wep" customClass="SettingViewController" customModule="SCTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SXS-AH-eXn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YyI-ht-bBC">
+                                <rect key="frame" x="20" y="130" width="374" height="156"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="86g-Yt-o3f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="설정" id="KjM-cO-mU6">
+                        <barButtonItem key="leftBarButtonItem" title="편집" id="Jwi-hO-zvy"/>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="KtD-gm-lyR">
+                            <connections>
+                                <action selector="btnDone:" destination="qFG-hf-wep" id="JgI-3f-nT4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2i-97-O1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1804.3478260869567" y="803.57142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C6l-Xj-hTx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p21-4G-YuZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hjk-M3-cH6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qFG-hf-wep" kind="relationship" relationship="rootViewController" id="hl2-fZ-SQ3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVy-Uc-qzF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2516" y="804"/>
         </scene>
     </scenes>
     <resources>

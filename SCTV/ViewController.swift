@@ -65,6 +65,21 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func btnSetting(_ sender: Any) {
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "svc") as? SettingViewController else {
+            messageAlert(title: "실패", message: "SettingViewController를 객체화하지 못하였습니다.")
+            return
+        }
+        
+        self.present(svc, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
+    
     func showCCTV() {
         // 추후 cctv 스트리밍 화면으로 연결되도록 구현할 예정
         guard let wvc = self.storyboard?.instantiateViewController(withIdentifier: "wvc") as? WebViewController else {
@@ -77,6 +92,15 @@ class ViewController: UIViewController {
             present(wvc, animated: true, completion: nil)
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // MARK:- Alert
     func messageAlert(title: String, message msg: String) {
