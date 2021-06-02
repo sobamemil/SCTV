@@ -62,12 +62,11 @@ class ApiSendViewController: UIViewController {
         let param: [String:String] = [
             "name": tfName.text!,
             ]
-        print(url)
+
         // 전송
         AF.request(url, method: .get, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON() { response in
             switch response.result {
             case .success:
-                print("respose: \(response)")
 
                 var found = false
                 if let jsonObject = try! response.result.get() as? NSArray {
@@ -89,66 +88,31 @@ class ApiSendViewController: UIViewController {
                         }
                     }
                 }
+                if(found == false) {
+                    self.messageAlert(message: "등록되지 않은 사용자입니다. 등록 후 사용해주세요.")
+                }
                 
-//                // 이름, 생년월일, 성별, 사진 JSON
-//                if let jsonObject = try! response.result.get() as? NSArray {
-//                    for json in jsonObject {
-//                        let element = json as! NSDictionary
-//
-//                        let name = element["name"] as? String
-//                        let birth = element["birth"] as? String
-//                        let gender = element["gender"] as? String
-//                        // let image_field = element["image_field"] as? String
-//                        // let created = element["created"] as? String
-//
-//                        if(name == self.tfName.text!) {
-//                            let parsedResponse = "name: \(name!)" + "\n"
-//                                + "birth: \(birth!)" + "\n"
-//                                + "gender: \(gender!)" + "\n"
-//                                //+ "created: \(created!)" + "\n"
-//                            self.ResponseMessageAlert(message: parsedResponse)
-//                            found = true
-//                            break
-//                        }
-//
-//                    }
-                    if(found == false) {
-                        self.messageAlert(message: "등록되지 않은 사용자입니다. 등록 후 사용해주세요.")
-                    }
-//                }
             case .failure(let error):
-//                print(response)
-//                print(error)
-                print("왜안돼?")
+                print(error)
                 return
             }
         }
     }
     
     func apiRegist() {
-//        let date = DateFormatter()
-//        date.dateFormat = "YYYY-MM-dd HH:mm:ss"
-        
-        let url = "http://1.244.160.11:8000/cctvapp/Person/"
-//        let url = "https://ptsv2.com/t/e8u30-1622135905/post"
-
-//        let image = UIImage(named: "cat.jpeg")!
-//        let baseImage = image.jpegData(compressionQuality: 0.1)?.base64EncodedString()
-        
         let ad = UIApplication.shared.delegate as! AppDelegate
+        print("ad.name: \(ad.name)\nad.content: \(ad.content)")
         
         let param: [String: Any] = [
             "name" : ad.name as String,
-            "Owner": 3 as Int,
             "content": ad.content as String,
             "image": ad.baseUserImage as String
         ]
         
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+        AF.request(ad.webServerIpAddress, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             switch response.result {
             case .success:
                 // 등록 성공 시 로직 구현
-                print(url)
                 self.messageAlert(message: "정상적으로 등록되었습니다.")
                 print(response)
 
@@ -220,16 +184,7 @@ class ApiSendViewController: UIViewController {
         // 이미지 파일을 가져와서 UIImage 형식으로 저장
         let dataDecoded:NSData = NSData(base64Encoded: self.baseImage!, options: NSData.Base64DecodingOptions(rawValue: 0))!
         let image: UIImage = UIImage(data: dataDecoded as Data)!
-//        let url = URL(string: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE")
-//
         
-//        do {
-//            let data = try Data(contentsOf: url!)
-//            image = UIImage(data: data)
-//        } catch {
-//
-//        }
-
         // 이미지 크기 설정
         let imageView = UIImageView(frame: CGRect(x: 60, y: 125, width: 150, height: 140))
         
@@ -277,6 +232,8 @@ class ApiSendViewController: UIViewController {
         
         self.topViewController()!.present(alert, animated: true, completion: nil)
     }
+    
+
     
 
     

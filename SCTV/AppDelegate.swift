@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var name = ""
     
     // 특이사항
-    var content = "empty"
+    var content = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

@@ -93,7 +93,7 @@ class ViewController: UIViewController {
     @IBAction func btnRegistUser(_ sender: Any) {
         // searchUserAlert()
         // 사용자 등록
-        self.registAlert()
+        self.registAlert1()
     }
     
     
@@ -229,7 +229,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func registAlert() {
+    private func registAlert2() {
         let alert = UIAlertController(title: "사용자등록", message: "사용자 등록 시 얼굴을 5초간 촬영하여야 합니다.\n촬영을 시작하시려면 '촬영하기' 버튼을 눌러주세요.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "촬영하기", style: .default) { _ in
             guard let cpvc = self.storyboard?.instantiateViewController(withIdentifier: "cpvc") as? CapturePreViewViewController else {
@@ -237,6 +237,29 @@ class ViewController: UIViewController {
                 return
             }
             self.present(cpvc, animated: true, completion: nil)
+        })
+        alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    // name과 content를 얻는 alert
+    func registAlert1() {
+        let alert = UIAlertController(title: "사용자 등록", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { tf in
+            tf.placeholder = "등록할 사용자 이름을 입력하세요"
+        }
+        alert.addTextField { tf in
+            tf.placeholder = "특이사항을 입력하세요"
+        }
+        
+        alert.addAction(UIAlertAction(title: "완료", style: .default) { _ in
+            let ad = UIApplication.shared.delegate as! AppDelegate
+            ad.name = alert.textFields?[0].text ?? ""
+            ad.content = alert.textFields?[1].text ?? ""
+            self.dismiss(animated: true, completion: nil)
+            self.registAlert2()
         })
         alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
         
