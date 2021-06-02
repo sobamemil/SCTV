@@ -19,6 +19,8 @@ class CapturePreViewViewController: UIViewController {
         self.videoCapture.delegate = self
     }
     
+    @IBOutlet weak var stateOutlet: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         if self.videoCapture.initCamera(){
             (self.previewView.layer as! AVCaptureVideoPreviewLayer).session =
@@ -28,7 +30,7 @@ class CapturePreViewViewController: UIViewController {
                 AVLayerVideoGravity.resizeAspectFill
             
             self.videoCapture.asyncStartCapturing()
-        }else{
+        } else{
             fatalError("Fail to init Video Capture")
         }
     }
@@ -40,44 +42,12 @@ class CapturePreViewViewController: UIViewController {
     @IBOutlet var previewView: UIView!
     
     @IBAction func btnDone(_ sender: Any) {
-        // let ad = UIApplication.shared.delegate as? AppDelegate
-        // print(ad!.baseUserImage)
-        
         let asvc = ApiSendViewController()
         
         self.dismiss(animated: true) {
             asvc.apiRegist()
         }
     }
-    
-    /*
-    override func viewDidAppear(_ animated: Bool) {
-        while(true) {
-            
-            
-            
-            let param: [String: String] = [
-                "name": self.storyboard?.instantiateViewController(withIdentifier: <#T##String#>).tfName.text!,
-                "content": "empty",
-                "image": baseImage!
-            ]
-
-            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
-                switch response.result {
-                case .success:
-                    // 등록 성공 시 로직 구현
-                    self.messageAlert(message: "정상적으로 등록되었습니다.")
-                    print(response)
-
-                case .failure:
-                    // 등록 실패 시 로직 구현
-                    self.messageAlert(message: "등록에 실패하였습니다.")
-                    NSLog("regist error (POST)")
-                }
-             }
-        }
-    }
-     */
 }
 
 
@@ -89,23 +59,24 @@ extension CapturePreViewViewController: VideoCaptureDelegate{
         guard let pixelBuffer = pixelBuffer else{ return }
         
         // 모델 학습용 사진 준비
-        // print("\n\n\n")
         let uiImage = UIImage(ciImage: CIImage(cvImageBuffer: pixelBuffer).resize(size: CGSize(width: 400, height: 600)))
         let baseImage = uiImage.jpegData(compressionQuality: 0.5)!.base64EncodedString()
-        // print(baseImage)
-        // print("\n\n\n")
         
         DispatchQueue.main.async {
+            // 70장만 서버로 보냄
             if(!(self.imageCount > 69)) {
                 // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
                 let ad = UIApplication.shared.delegate as! AppDelegate
                 ad.baseUserImage = ad.baseUserImage + baseImage + "엔터"
                 // ad.baseUserImage = baseImage
                 self.imageCount += 1
-            } else {
-                self.btnDone(self)
+            }
+            
+            if(self.imageCount == 70) {
+                self.stateOutlet.text = "완료 버튼을 눌러주세요"
             }
         }
+
     }
 }
 
