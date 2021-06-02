@@ -35,7 +35,7 @@ class ApiSendViewController: UIViewController {
     
     func showCCTV() {
         // 추후 cctv 스트리밍 화면으로 연결되도록 구현할 예정
-        guard let wvc = self.storyboard?.instantiateViewController(withIdentifier: "wvc") as? WebViewController else {
+        guard let wvc = self.storyboard?.instantiateViewController(withIdentifier: "wvc") as? WebController else {
             return
         }
                 

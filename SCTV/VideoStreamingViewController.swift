@@ -54,7 +54,7 @@ class VideoStreamingViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnShowWeb(_ sender: Any) {
-        guard let wvc = self.storyboard?.instantiateViewController(identifier: "wvc") as? WebViewController else {
+        guard let wvc = self.storyboard?.instantiateViewController(identifier: "wvc") as? WebController else {
             return
         }
         

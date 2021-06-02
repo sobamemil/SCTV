@@ -22,7 +22,6 @@
 		572274482647CF0400D2E4A1 /* SCTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 572274462647CF0400D2E4A1 /* SCTV.xcdatamodeld */; };
 		5722744A2647CF0500D2E4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572274492647CF0500D2E4A1 /* Assets.xcassets */; };
 		57321DC4264D59F300707C60 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57321DC3264D59F300707C60 /* WebKit.framework */; };
-		57321DC6264D5B4B00707C60 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57321DC5264D5B4B00707C60 /* WebViewController.swift */; };
 		57B5D0F22652B3BD00AB7CD0 /* ApiSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */; };
 		57F8091026673A1300095B57 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8090F26673A1300095B57 /* SettingViewController.swift */; };
 		57F8091226677A4300095B57 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F8091126677A4300095B57 /* MessageUI.framework */; };
@@ -49,7 +48,6 @@
 		572274492647CF0500D2E4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5722744E2647CF0500D2E4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57321DC3264D59F300707C60 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		57321DC5264D5B4B00707C60 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		57B5D0F12652B3BD00AB7CD0 /* ApiSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiSendViewController.swift; sourceTree = "<group>"; };
 		57F8090F26673A1300095B57 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		57F8091126677A4300095B57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -126,7 +124,6 @@
 				571C8513265FE17C00FC539F /* CapturePreViewViewController.swift */,
 				57FEF80B2667D49400B89135 /* WebController.swift */,
 				571C850E265FDCC700FC539F /* VideoCaptureAndImage */,
-				57321DC5264D5B4B00707C60 /* WebViewController.swift */,
 				572274492647CF0500D2E4A1 /* Assets.xcassets */,
 				57143B3C26661BEF0007C931 /* LS.storyboard */,
 				5722744E2647CF0500D2E4A1 /* Info.plist */,
@@ -279,7 +276,6 @@
 				57143B3F266625FE0007C931 /* ViewController.swift in Sources */,
 				5719A2ED264CE8C000E0E0C3 /* VideoStreamingViewController.swift in Sources */,
 				5722743E2647CF0400D2E4A1 /* AppDelegate.swift in Sources */,
-				57321DC6264D5B4B00707C60 /* WebViewController.swift in Sources */,
 				571C8512265FE00600FC539F /* CapturePreviewView.swift in Sources */,
 				572274402647CF0400D2E4A1 /* SceneDelegate.swift in Sources */,
 				571C8510265FDD1700FC539F /* CIImage.swift in Sources */,

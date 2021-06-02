@@ -14,11 +14,8 @@ class WebController: UIViewController, WKUIDelegate {
 //    @IBOutlet weak var myWebView: WKWebView!
     var webView: WKWebView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // viewDidLoad() 바로 다음에 함수를 호출하여 웹뷰가 즉시 출력될 수 있도록 작성
-        // loadWebPage("http://115.86.241.6:81/stream")
     }
     
     override func loadView() {
@@ -30,21 +27,7 @@ class WebController: UIViewController, WKUIDelegate {
 
     //웹뷰 로드 기능을 하는 함수 생성
     func loadWebPage(_ url:String) {
-//        var realUrl = url
-        
-//        // url에 'www'가 없으면 추가해줌
-//        if( !(url.contains("www")) ) {
-//            realUrl = "www." + url
-//        }
-//
-//        // url의 맨 앞이 'http' 혹은 'https'가 아니면 추가해줌
-//        if( !(realUrl.hasPrefix("http") || realUrl.hasPrefix("https")) ) {
-//            realUrl = "http://" + realUrl
-//        }
-//
-//        print("changed ip: \(realUrl)")
-//
-//        // https://www.naver.com
+        // https://www.naver.com
         // url 확인 후 정상적인 url이 아니면 오류 알림창 띄움
         if( self.verifyUrl(urlString: url)) {
             let myUrl = URL(string: url)
