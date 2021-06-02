@@ -12,7 +12,6 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
     @IBAction func btnDone(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
