@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     func searchUserAlert() {
         let alert = UIAlertController(title: "사용자 조회", message: nil, preferredStyle: .alert)
         
@@ -106,6 +106,7 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "조회하기", style: .default) { _ in
             self.userName = alert.textFields?[0].text ?? "입력된 사용자 이름 없음"
             self.userId = alert.textFields?[1].text ?? "입력된 사용자 아이디 없음"
+            self.messageAlert(title: "사용자 조회 버튼 테스트", message: "입력된 사용자 이름: \(self.userName)\n입력된 사용자 아이디: \(self.userId)")
         })
         alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
         
