@@ -27,7 +27,7 @@ public class VideoCapture : NSObject{
     /**
      Frames Per Second; used to throttle capture rate
      */
-    public var fps = 10 // 5초간 찍음
+    public var fps = 7 // 프레임 수
     
     var lastTimestamp = CMTime()
     

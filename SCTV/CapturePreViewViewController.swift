@@ -64,15 +64,15 @@ extension CapturePreViewViewController: VideoCaptureDelegate{
         
         DispatchQueue.main.async {
             // 70장만 서버로 보냄
-            if(!(self.imageCount > 69)) {
+            if(!(self.imageCount > 24)) {
                 // AppDelegate의 baseUserImage에 base64로 인코딩된 사용자 촬영 프레임을 append함
                 let ad = UIApplication.shared.delegate as! AppDelegate
-                ad.baseUserImage = ad.baseUserImage + baseImage + "엔터"
+                ad.baseUserImage = ad.baseUserImage + baseImage + "엔터" // "엔터"는 각 이미지의 구분을 위함
                 // ad.baseUserImage = baseImage
                 self.imageCount += 1
             }
             
-            if(self.imageCount == 70) {
+            if(self.imageCount == 25) {
                 self.stateOutlet.text = "완료 버튼을 눌러주세요"
             }
         }
