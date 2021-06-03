@@ -11,7 +11,7 @@ import MessageUI
 import WebKit
 import NVActivityIndicatorView
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, NVActivityIndicatorViewable {
     
     var userName = ""
     var userId = ""
@@ -44,17 +44,22 @@ class ViewController: UIViewController {
         let ad = UIApplication.shared.delegate as! AppDelegate
         let serverAddress = ad.undefinedUserRequestAddress
         
-        // 엑티비티 인디케이터
-        let indicator = NVActivityIndicatorView(frame: CGRect(x: 162, y: 100, width: 50, height: 50),
-                                                type: .circleStrokeSpin,
-                                                color: .white,
-                                                padding: 0)
+//        // 엑티비티 인디케이터
+//        let indicator = NVActivityIndicatorView(frame: CGRect(x: (self.view.frame.width / 2) - 21, y: self.view.frame.height - (self.view.frame.height / 3), width: 50, height: 50),
+//                                                type: .circleStrokeSpin,
+//                                                color: .white,
+//                                                padding: 0)
         
-        // 뷰에 인디케이터 삽입
-        self.view.addSubview(indicator)
-        indicator.startAnimating() // indicator 실행
+//        // 뷰에 인디케이터 삽입
+//        self.view.addSubview(indicator)
+//
+//        // indicator 실행
+//        indicator.startAnimating()
+        startAnimating(CGSize(width: 100, height: 100),
+                       message: "요청중...",
+                       type: .pacman,
+                       color: .white)
 
-        
         AF.request(serverAddress , method: .post, parameters: nil, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
@@ -70,10 +75,12 @@ class ViewController: UIViewController {
                         if (r == 1) {
                             self.baseImage = jsonObject["image"] as? String
                             ad.baseUserImage = self.baseImage!
-                            indicator.stopAnimating() // stop
+//                            indicator.stopAnimating() // stop
+                            self.stopAnimating() // stop
                             self.ResponseMessageAlert(title: "침입자 있음")
                         } else {
-                            indicator.stopAnimating() // stop
+//                            indicator.stopAnimating() // stop
+                            self.stopAnimating() // stop
                             self.messageAlert(title: "침입자 없음", message: "")
                         }
                     }
@@ -82,7 +89,8 @@ class ViewController: UIViewController {
             case .failure:
                 // 실패 시 처리
                 print("실패")
-                indicator.stopAnimating() // stop
+//                indicator.stopAnimating() // stop
+                self.stopAnimating() // stop
                 self.messageAlert(title: "서버 요청 실패", message: "서버 상태를 확인해주세요.")
             }
         }

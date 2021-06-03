@@ -1,8 +1,8 @@
 import UIKit
 import Alamofire
+import NVActivityIndicatorView
 
-
-class ApiSendViewController: UIViewController {
+class ApiSendViewController: UIViewController, NVActivityIndicatorViewable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +101,12 @@ class ApiSendViewController: UIViewController {
     
     func apiRegist() {
         let ad = UIApplication.shared.delegate as! AppDelegate
-        print("ad.name: \(ad.name)\nad.content: \(ad.content)")
+        
+        // 인디케이터 실행
+        startAnimating(CGSize(width: 100, height: 100),
+                       message: "등록중...",
+                       type: .pacman,
+                       color: .white)
         
         let param: [String: Any] = [
             "name" : ad.name as String,
@@ -114,11 +119,13 @@ class ApiSendViewController: UIViewController {
             switch response.result {
             case .success:
                 // 등록 성공 시 로직 구현
+                self.stopAnimating() // stop
                 self.messageAlert(message: "정상적으로 등록되었습니다.")
                 print(response)
 
             case .failure:
                 // 등록 실패 시 로직 구현
+                self.stopAnimating() // stop
                 self.messageAlert(message: "등록에 실패하였습니다.")
                 NSLog("regist error (POST)")
             }
