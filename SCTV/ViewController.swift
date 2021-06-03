@@ -47,14 +47,15 @@ class ViewController: UIViewController {
         // 엑티비티 인디케이터
         let indicator = NVActivityIndicatorView(frame: CGRect(x: 162, y: 100, width: 50, height: 50),
                                                 type: .circleStrokeSpin,
-                                                color: .black,
+                                                color: .white,
                                                 padding: 0)
         
         // 뷰에 인디케이터 삽입
         self.view.addSubview(indicator)
+        indicator.startAnimating() // indicator 실행
+
         
         AF.request(serverAddress , method: .post, parameters: nil, encoding: JSONEncoding.default).responseJSON() { response in
-            indicator.startAnimating() // indicator 실행
             switch response.result {
             case .success:
                 // 성공 시 처리
@@ -69,42 +70,19 @@ class ViewController: UIViewController {
                         if (r == 1) {
                             self.baseImage = jsonObject["image"] as? String
                             ad.baseUserImage = self.baseImage!
+                            indicator.stopAnimating() // stop
                             self.ResponseMessageAlert(title: "침입자 있음")
                         } else {
+                            indicator.stopAnimating() // stop
                             self.messageAlert(title: "침입자 없음", message: "")
                         }
                     }
                 }
-                // self.messageAlert(title: "요청 성공", message: "정상 처리되었습니다.")
-            
-            /*
-             if let jsonObject = try! response.result.get() as? NSArray {
-                 for json in jsonObject {
-                     // print(json)
-                     let element = json as! NSDictionary
-                     // let name = String(unicodeScalarLiteral: element["name"] as! String) // 유니코드로 이상하게 나오지 않도록 변환
-                     let name = element["name"] as? String
-                     let content = element["content"] as? String
-                     self.baseImage = element["image"] as? String
-                     
-                     if(name == self.tfName.text!) {
-                         let parsedResponse = "name: \(name!)" + "\n"
-                             + "content: \(content!)" + "\n\n\n"
-                         
-                         found = true
-                         self.ResponseMessageAlert(message: parsedResponse)
-                         break
-                     }
-                 }
-             }
-             if(found == false) {
-                 self.messageAlert(message: "등록되지 않은 사용자입니다. 등록 후 사용해주세요.")
-             }
-             */
 
             case .failure:
                 // 실패 시 처리
                 print("실패")
+                indicator.stopAnimating() // stop
                 self.messageAlert(title: "서버 요청 실패", message: "서버 상태를 확인해주세요.")
             }
         }
