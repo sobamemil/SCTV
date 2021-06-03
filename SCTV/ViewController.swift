@@ -162,7 +162,7 @@ class ViewController: UIViewController {
             case .success:
                 // 등록 성공 시 로직 구현
                 self.messageAlert(title: "사용자 등록 성공", message: "정상적으로 등록되었습니다.")
-                //print(response)
+                print("registResponse: \(response)")
 
             case .failure:
                 // 등록 실패 시 로직 구현

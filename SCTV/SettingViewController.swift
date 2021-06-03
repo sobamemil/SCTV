@@ -15,7 +15,15 @@ class SettingViewController: UIViewController {
         self.userAddress.delegate = self
     }
     
-    @IBOutlet weak var CCTVIpAddress: UITextField!
+    @IBOutlet weak var CCTVIpAddress: UITextField! {
+        didSet {
+            let ad = UIApplication.shared.delegate as? AppDelegate
+            ad?.CCTVipAddress = self.CCTVIpAddress.placeholder!
+            
+            CCTVIpAddress.autocorrectionType = .no
+            CCTVIpAddress.autocapitalizationType = .none
+        }
+    }
     @IBOutlet weak var reportNumber: UITextField!
     @IBOutlet weak var userAddress: UITextField!
 
