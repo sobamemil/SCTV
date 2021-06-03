@@ -43,20 +43,59 @@ class ViewController: UIViewController {
         let ad = UIApplication.shared.delegate as! AppDelegate
         let serverAddress = ad.undefinedUserRequestAddress
         
-        let param: [String: Any] = [
-            "content" : "chanyeong" as String,
-            "image" : "base64String" as String
-        ]
+//        let param: [String: Any] = [
+//            "content" : "chanyeong" as String,
+//            "image" : "base64String" as String
+//        ]
 
         AF.request(serverAddress , method: .post, parameters: nil, encoding: JSONEncoding.default).responseJSON() { response in
+            print("response: \(response)")
             switch response.result {
             case .success:
                 // 성공 시 처리
                 print("성공")
                 print(response)
                 
-                self.ResponseMessageAlert(title: "침입자 있음")
+                
+                if let jsonObject = try! response.result.get() as? NSDictionary {
+                    // let name = String(unicodeScalarLiteral: element["name"] as! String) // 유니코드로 이상하게 나오지 않도록 변환
+                    let result = jsonObject["result"] as? Int
+                    if let r = result {
+                        if (r == 1) {
+                            self.baseImage = jsonObject["image"] as? String
+                            ad.baseUserImage = self.baseImage!
+                            self.ResponseMessageAlert(title: "침입자 있음")
+                        } else {
+                            self.messageAlert(title: "침입자 없음", message: "")
+                        }
+                    }
+                }
                 // self.messageAlert(title: "요청 성공", message: "정상 처리되었습니다.")
+            
+            /*
+             if let jsonObject = try! response.result.get() as? NSArray {
+                 for json in jsonObject {
+                     // print(json)
+                     let element = json as! NSDictionary
+                     // let name = String(unicodeScalarLiteral: element["name"] as! String) // 유니코드로 이상하게 나오지 않도록 변환
+                     let name = element["name"] as? String
+                     let content = element["content"] as? String
+                     self.baseImage = element["image"] as? String
+                     
+                     if(name == self.tfName.text!) {
+                         let parsedResponse = "name: \(name!)" + "\n"
+                             + "content: \(content!)" + "\n\n\n"
+                         
+                         found = true
+                         self.ResponseMessageAlert(message: parsedResponse)
+                         break
+                     }
+                 }
+             }
+             if(found == false) {
+                 self.messageAlert(message: "등록되지 않은 사용자입니다. 등록 후 사용해주세요.")
+             }
+             */
 
             case .failure:
                 // 실패 시 처리
@@ -161,12 +200,12 @@ class ViewController: UIViewController {
     }
     
     private func ResponseMessageAlert(title: String) {
-        let alert = UIAlertController(title: "요청 전송 완료", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
                 
         // 이미지 파일을 가져와서 UIImage 형식으로 저장
-//        let dataDecoded: NSData? = NSData(base64Encoded: self.baseImage!, options: NSData.Base64DecodingOptions(rawValue: 0))
-//        let image: UIImage = UIImage(data: dataDecoded! as Data)!
-        let image = UIImage(named: "no_face.jpeg")
+        let dataDecoded: NSData? = NSData(base64Encoded: self.baseImage!, options: NSData.Base64DecodingOptions(rawValue: 0))
+        let image: UIImage = UIImage(data: dataDecoded! as Data)!
+        // let image = UIImage(named: "no_face.jpeg")
 //        let url = URL(string: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE")
 //
         
