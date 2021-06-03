@@ -41,20 +41,20 @@ class ViewController: UIViewController {
     // (침입자 확인) 버튼, 침입자 내역이 있는지 서버에 요청하는 버튼
     @IBAction func btnEventRequest(_ sender: Any) {
         let ad = UIApplication.shared.delegate as! AppDelegate
-        let serverAddress = ad.webServerIpAddress
+        let serverAddress = ad.undefinedUserRequestAddress
         
         let param: [String: Any] = [
             "content" : "chanyeong" as String,
             "image" : "base64String" as String
         ]
 
-        AF.request(serverAddress , method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
+        AF.request(serverAddress , method: .post, parameters: nil, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
                 // 성공 시 처리
                 print("성공")
                 print(response)
-                let ad = UIApplication.shared.delegate as! AppDelegate
+                
                 self.ResponseMessageAlert(title: "침입자 있음")
                 // self.messageAlert(title: "요청 성공", message: "정상 처리되었습니다.")
 

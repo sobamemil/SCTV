@@ -106,6 +106,7 @@ class ApiSendViewController: UIViewController {
         let param: [String: Any] = [
             "name" : ad.name as String,
             "content": ad.content as String,
+            "Owner" : 3 as Int,
             "image": ad.baseUserImage as String
         ]
         
@@ -232,11 +233,6 @@ class ApiSendViewController: UIViewController {
         
         self.topViewController()!.present(alert, animated: true, completion: nil)
     }
-    
-
-    
-
-    
     
     // MARK:- KEYBOARD SETTING
     // 화면 터치 시 키보드 자판이 내려가도록 하는 부분

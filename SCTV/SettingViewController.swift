@@ -43,3 +43,19 @@ extension SettingViewController: UITextFieldDelegate {
         }
     }
 }
+
+// MARK:- KEYBOARD SETTING
+extension SettingViewController {
+    // 화면 터치 시 키보드 자판이 내려가도록 하는 부분
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // 키보드의 Done, 완료 버튼 클릭 시 키보드가 내려가도록 구현
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        CCTVIpAddress.resignFirstResponder()
+        reportNumber.resignFirstResponder()
+        userAddress.resignFirstResponder()
+        return true
+    }
+}

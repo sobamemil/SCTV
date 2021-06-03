@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // web server ip address
     var webServerIpAddress = "http://1.244.160.11:8000/cctvapp/Person/" // 민호형 서버
     // var webServerIpAddress = "http://115.86.241.6:8000/testapp/Test/" // 윤호 서버
+    
+    // 침입자 확인 ip 주소
+    var undefinedUserRequestAddress = "http://1.244.160.11:8000/cctvapp/Instrude/"
 
     // "https://ptsv2.com/t/2wyi4-1622630686/post" // RESTful test server
     
