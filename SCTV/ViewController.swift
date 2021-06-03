@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import MessageUI
 import WebKit
+import NVActivityIndicatorView
 
 class ViewController: UIViewController {
     
@@ -43,13 +44,17 @@ class ViewController: UIViewController {
         let ad = UIApplication.shared.delegate as! AppDelegate
         let serverAddress = ad.undefinedUserRequestAddress
         
-//        let param: [String: Any] = [
-//            "content" : "chanyeong" as String,
-//            "image" : "base64String" as String
-//        ]
-
+        // 엑티비티 인디케이터
+        let indicator = NVActivityIndicatorView(frame: CGRect(x: 162, y: 100, width: 50, height: 50),
+                                                type: .circleStrokeSpin,
+                                                color: .black,
+                                                padding: 0)
+        
+        // 뷰에 인디케이터 삽입
+        self.view.addSubview(indicator)
+        
         AF.request(serverAddress , method: .post, parameters: nil, encoding: JSONEncoding.default).responseJSON() { response in
-            print("response: \(response)")
+            indicator.startAnimating() // indicator 실행
             switch response.result {
             case .success:
                 // 성공 시 처리
