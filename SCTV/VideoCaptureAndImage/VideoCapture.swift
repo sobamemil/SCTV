@@ -33,7 +33,6 @@ public class VideoCapture : NSObject{
     
     override init() {
         super.init()
-        
     }
     
     func initCamera() -> Bool{
@@ -55,7 +54,6 @@ public class VideoCapture : NSObject{
         if captureSession.canAddInput(videoInput){
             captureSession.addInput(videoInput)
         }
-        
         
         //프레임의 도착지
         let videoOutput = AVCaptureVideoDataOutput()
